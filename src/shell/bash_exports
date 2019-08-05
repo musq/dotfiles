@@ -1,0 +1,196 @@
+#!/bin/bash
+
+# Bash Variables
+# https://www.gnu.org/software/bash/manual/html_node/Bash-Variables.html
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Change the z database location
+
+export _Z_DATA="$HOME/.local/share/z.db"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Do not resolve symlinks in z
+
+export _Z_NO_RESOLVE_SYMLINKS=1
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set bat config path
+
+export BAT_CONFIG_PATH="$HOME/.config/bat.conf"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make `nvim` the default editor
+
+export EDITOR="nvim"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set fzf preview
+
+export FZF_PREVIEW=1
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set default fzf command
+
+if cmd_exists "fd"; then
+    export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+else
+    export FZF_DEFAULT_COMMAND='find * -type f'
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Change to a fuzzy found sub-directory
+
+if cmd_exists "fd"; then
+    export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+else
+    export FZF_ALT_C_COMMAND='find * -type d'
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append fuzzy found files to the end of the current shell command
+
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append fuzzy found files to the end of the current shell command
+
+export FZF_DEFAULT_OPTS='
+    --bind ctrl-f:page-down,ctrl-b:page-up
+    --color fg+:253,bg+:237,hl+:202,hl:202
+    --color info:136,prompt:136,spinner:136,pointer:7,marker:204
+    --height 40% --multi --reverse'
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Change to a fuzzy found sub-directory
+
+if [ "$FZF_PREVIEW" -eq 1 ]; then
+    export FZF_CTRL_T_OPTS="--preview 'bat --color=always --line-range :500 {}'"
+    export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -100'"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set git indicators in PS1
+
+export GIT_PS1_SHOWBRANCHREMOTE=1
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWSTASHSTATE=1
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+export GIT_PS1_SHOWUPSTREAM="verbose"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Ignore commands that are duplicates
+
+export HISTCONTROL=ignoredups
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of lines of history
+# persisted in the history file (default value is 500)
+
+export HISTFILESIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Don't add certain commands to the history file
+
+export HISTIGNORE="c:clear:exit:pwd"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Increase the maximum number of commands recorded
+# in the command history (default value is 500)
+
+export HISTSIZE=10000
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Prefer US English and use UTF-8 encoding
+
+export LANG="en_US"
+export LC_ALL="en_US.UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use custom `less` colors for `man` pages
+
+export LESS_TERMCAP_md=$(printf "\e[1;31m")
+export LESS_TERMCAP_me=$(printf "\e[0m")
+export LESS_TERMCAP_se=$(printf "\e[0m")
+export LESS_TERMCAP_so=$(printf "\e[1;40;92m")
+export LESS_TERMCAP_ue=$(printf "\e[0m")
+export LESS_TERMCAP_us=$(printf "\e[1;32m")
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Do not show locale warnings for Nix packages due to glibc
+# https://github.com/NixOS/nixpkgs/issues/38991#issuecomment-496332104
+
+export LOCALE_ARCHIVE_2_11="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
+export LOCALE_ARCHIVE_2_27="$(nix-build --no-out-link "<nixpkgs>" -A glibcLocales)/lib/locale/locale-archive"
+export LOCALE_ARCHIVE="/usr/bin/locale"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set tab width to 4
+# Highlight searches and ignore case
+
+export MANPAGER="less --tabs=4 --ignore-case --hilite-search --squeeze-blank-lines"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Prepend $HOME/bin to PATH, if not already exists
+
+[[ ":$PATH:" != *":$HOME/bin:"* ]] \
+    && PATH="$HOME/bin:${PATH}"
+
+export PATH
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Tell pipenv to create venvs inside project folders
+
+export PIPENV_VENV_IN_PROJECT="true"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history
+
+export PROMPT_COMMAND="history -a;"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Make Python use UTF-8 encoding for output to stdin/stdout/stderr
+
+export PYTHONIOENCODING="UTF-8"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Enable colored terminal
+
+if [[ $COLORTERM == gnome-* && $TERM == xterm ]] \
+    && infocmp gnome-256color &> /dev/null; then
+    export TERM="gnome-256color"
+elif infocmp xterm-256color &> /dev/null; then
+    export TERM="xterm-256color"
+fi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set XDG paths
+
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"

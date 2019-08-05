@@ -1,0 +1,85 @@
+#!/bin/bash
+
+# Remove all previous environment defined aliases
+unalias -a
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias cd..="cd .."
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+alias :q="exit"
+alias aliases="alias | cut -c7- | bat -l ini --style=plain"
+alias ag="ag --color-line-number '0;91' --color-match '30;43' --color-path '1;36'"
+alias c="clear"
+alias dfh="df -h $HOME"
+alias e="exa"
+alias g="git"
+alias gtop="glances"
+alias ic="icdiff --color-map=description:cyan --numlines=4"
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias l="less"
+alias ll="exa --long --all --group --time=modified"
+alias m="man"
+alias p='python'
+alias path='printf "%b\n" "${PATH//:/\\n}"'
+alias pping='prettyping --nolegend'
+alias rg="rg --smart-case --colors 'line:fg:220,100,0' --colors 'match:bg:yellow' --colors 'match:fg:0,0,0' --colors 'match:style:nobold' --colors 'path:fg:0,180,180' --colors 'path:style:underline'"
+alias rmf="rm -rf"
+alias v="nvim"
+alias vi="vi -u ~/.config/vim/vimrc"
+alias vim="vim -u ~/.config/vim/vimrc"
+alias xb="nix-build"
+alias xc="nix-channel"
+alias xe="nix-env"
+alias xs="nix-shell"
+alias xt="nix-store"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# fzf
+
+alias ff="fzf_find_edit"
+alias ffg="fzf_grep_edit"
+
+alias ga="fzf_git_add"
+alias gl="fzf_git_log"
+alias gpx="fzf_git_log_pickaxe"
+alias gr="fzf_git_reset"
+alias grf="fzf_git_reflog"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# GPG
+
+alias gpg="gpg2 --options $HOME/.gnupg/gpg.conf --options $HOME/.gnupg/gpg.conf.local"
+
+# Forget keys in gpg-agent
+alias gafk="gpg-connect-agent reloadagent /bye"
+# List keys in gpg-agent
+alias galk="gpg-connect-agent 'keyinfo --list' /bye"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Tmux
+
+# Specify tmux.conf location, since Tmux devs have decided not to
+# support XDG specifications
+# https://github.com/tmux/tmux/issues/142
+alias tmux="tmux -f ~/.config/tmux/tmux.conf"
+
+alias t="tmux"
+alias ta="tmux attach"
+alias tat="tmux attach -t"
+alias tl="tmux ls"
+alias tn="tmux new-session -s"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Load OS specific aliases
+
+. "aliases/$OS/bash_aliases"

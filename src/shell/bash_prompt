@@ -1,0 +1,193 @@
+#!/bin/bash
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+set_prompts() {
+
+    local reset=$(tput sgr0 2> /dev/null)
+
+    local cyan=""
+    local emerald=""
+    local green=""
+    local grey=""
+    local orange=""
+    local pink=""
+    local purple=""
+    local red=""
+    local white=""
+    local yellow=""
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    if [ "$(tput colors 2> /dev/null || printf "0")" -ge 256 ]; then
+
+        # Solarized colors.
+        # https://github.com/altercation/solarized/tree/master/iterm2-colors-solarized#the-values
+
+        # Escape color literals to avoid commandline overwriting itself
+        # https://stackoverflow.com/questions/2024884/commandline-overwrites-itself-when-the-commands-get-too-long#answer-9486356
+
+        cyan="\[$(tput setaf 74)\]"
+        emerald="\[$(tput setaf 70)\]"
+        green="\[$(tput setaf 64)\]"
+        grey="\[$(tput setaf 247)\]"
+        orange="\[$(tput setaf 166)\]"
+        pink="\[$(tput setaf 206)\]"
+        purple="\[$(tput setaf 98)\]"
+        red="\[$(tput setaf 203)\]"
+        white="\[$(tput setaf 15)\]"
+        yellow="\[$(tput setaf 172)\]"
+
+
+    fi
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+    # Prompt Statement variables.
+    # http://ss64.com/bash/syntax-prompt.html
+
+    # ------------------------------------------------------------------
+    # | PS1 - Default interactive prompt                               |
+    # ------------------------------------------------------------------
+
+    if user_is_root; then
+        # For root users
+
+        local user_color="$red"
+        local host_color="$red"
+        local dir_color="$emerald"
+        local prompt_color="$red"
+        local prompt_value="#"
+
+    else
+        # For non-root users
+
+        local user_color="$orange"
+        local host_color="$green"
+        local dir_color="$yellow"
+        local prompt_color="$pink"
+        local prompt_value="\$"
+    fi
+
+    PS1="\[\033]0;\W\007\]" # Terminal title (set to the
+                            # current working directory)
+    PS1+="\[$(tput bold)\]" # Set everything to bold from here
+
+    case $1 in
+        "")
+            PS1+="$user_color\u"        # Username
+            PS1+="$grey@"
+            PS1+="$host_color\h"        # Host
+            PS1+="$grey: "
+            ;&
+        "" | "mini" | "micro")
+            if [ -n "$IN_NIX_SHELL" ]; then
+                PS1+="$purple["
+            fi
+            PS1+="$dir_color\w"        # Working directory
+            if [ -n "$IN_NIX_SHELL" ]; then
+                PS1+="$purple]"
+                if [ "$IN_NIX_SHELL" == "pure" ]; then
+                    PS1+="."
+                fi
+            fi
+            ;;
+        "nano")
+            if [ -n "$IN_NIX_SHELL" ]; then
+                PS1+="$purple["
+            fi
+            PS1+="$dir_color\W"        # Basename of working directory
+            if [ -n "$IN_NIX_SHELL" ]; then
+                PS1+="$purple]"
+                if [ "$IN_NIX_SHELL" == "pure" ]; then
+                    PS1+="."
+                fi
+            fi
+            ;;
+    esac
+
+    # Fetch git repository details
+    case $1 in
+        "")
+            PS1+="$cyan\$(__git_ps1)"
+            ;;
+        "mini" | "micro" | "nano")
+            if [ "$2" = "git" ]; then
+                PS1+="$cyan\$(__git_ps1)"
+            fi
+            ;;
+        "pico")
+            if [ "$2" = "git" ]; then
+                PS1+="$cyan\$(__git_ps1)"
+            fi
+            ;;
+    esac
+
+    case $1 in
+        "" | "mini" | "micro" | "nano")
+            PS1+=" "
+            ;;
+    esac
+
+    PS1+="$prompt_color$prompt_value "  # Prompt
+
+    PS1+="\[$reset\]"             # Reset everthing from here
+
+    if [ "$1" = "micro" ]; then
+        export PROMPT_DIRTRIM=2
+    else
+        unset PROMPT_DIRTRIM
+    fi
+
+    export PS1
+
+    # ------------------------------------------------------------------
+    # | PS2 - Continuation interactive prompt                          |
+    # ------------------------------------------------------------------
+
+    PS2="> "
+
+    export PS2
+
+    # ------------------------------------------------------------------
+    # | PS4 - Debug prompt                                             |
+    # ------------------------------------------------------------------
+
+    # e.g:
+    #
+    # The GNU `date` command has the `%N` interpreted sequence while
+    # other implementations don't (on macOS `gdate` can be used instead
+    # of the native `date` if the `coreutils` package has been installed).
+    #
+    # local dateCmd=""
+    #
+    # if [ "$(date +%N)" != "N" ] || \
+    #    [ ! -x "$(command -v "gdate")" ]; then
+    #    dateCmd="date +%s.%N"
+    # else
+    #    dateCmd="gdate +%s.%N"
+    # fi
+    #
+    # PS4="+$( tput cr && tput cuf 6 &&
+    #          printf "$yellow %s $green%6s $reset" "$($dateCmd)" "[$LINENO]" )"
+    #
+    # PS4 output:
+    #
+    #   ++    1357074705.875970000  [123] '[' 1 == 0 ']'
+    #   └──┬─┘└────┬───┘ └───┬───┘ └──┬─┘ └──────┬─────┘
+    #      │       │         │        │          │
+    #      │       │         │        │          └─ command
+    #      │       │         │        └─ line number
+    #      │       │         └─ nanoseconds
+    #      │       └─ seconds since 1970-01-01 00:00:00 UTC
+    #      └─ depth-level of the subshell
+
+    PS4="+$( tput cr 2> /dev/null;
+             tput cuf 6 2> /dev/null;
+             printf "%s" "$reset" )"
+
+    export PS4
+
+}
+
+set_prompts "$@"

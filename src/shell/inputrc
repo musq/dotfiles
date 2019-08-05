@@ -1,0 +1,108 @@
+#!/bin/bash
+
+# Readline library configuration options.
+# http://ss64.com/bash/syntax-inputrc.html
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# If there are multiple matches for completion,
+# make TAB cycle through them.
+
+TAB: menu-complete
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Searching files via partial match.
+
+# ↑
+"\e[A":history-search-backward
+# ↓
+"\e[B":history-search-forward
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Disable beeping; Allow window flashing.
+
+set bell-style visible
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Enable completion coloring.
+
+set colored-completion-prefix on
+
+set colored-stats on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use case-insensitive TAB autocompletion.
+
+set completion-ignore-case on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Treat hypen and underscores as equivalent.
+
+set completion-map-case on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Bracketed paste mode - do not execute a command on pasting stuff in
+# terminal even if it has new lines.
+
+# https://cirw.in/blog/bracketed-paste
+
+set enable-bracketed-paste on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append directories with a slash.
+
+set mark-directories on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Automatically add slash to the end of symlinked directories
+# when completing.
+
+set mark-symlinked-directories on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Perform partial completion on the first Tab press, and
+# only start cycling full results on the second Tab press.
+
+set menu-complete-display-prefix on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Display a list of the matching files
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Avoid duplicating text when completing an option mid-word.
+
+set skip-completed-text on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
+# https://github.com/alrra/dotfiles/issues/38#issuecomment-277527017
+
+# Ctrl →
+"\e[1;5C":forward-word
+# Ctrl ←
+"\e[1;5D":backward-word
+
+# shift →
+"\e[1;2C":shell-forward-word
+# shift ←
+"\e[1;2D":shell-backward-word
+
+# fn →
+"\e[F":end-of-line
+# fn ←
+"\e[H":beginning-of-line
