@@ -9,6 +9,7 @@ install_neovim_python() {
 
     local -r path="$HOME/.local/share/nvim/pynvim"
 
+    # shellcheck disable=SC2230
     local pythonPath="$(which python3)"
 
     if [ -x "/usr/bin/python3" ]; then
@@ -18,8 +19,8 @@ install_neovim_python() {
     fi
 
     execute \
-        "$pythonPath -m venv "$path" \
-            && "$path/bin/pip" install neovim" \
+        "$pythonPath -m venv $path \
+            && $path/bin/pip install neovim" \
         "Neovim helper"
 
 }
@@ -30,13 +31,13 @@ install_tmux_plugin_manager() {
     local -r tmuxConfig="$HOME/.config/tmux/tmux.conf"
 
     execute \
-        "rm -rf "$path" \
-            && mkdir -p "$path" \
-            && git clone https://github.com/tmux-plugins/tpm "$path"" \
+        "rm -rf $path \
+            && mkdir -p $path \
+            && git clone https://github.com/tmux-plugins/tpm $path" \
         "Tmux Plugin Manager"
 
     execute \
-        "tmux -f "$tmuxConfig" new -d -s tpm \
+        "tmux -f $tmuxConfig new -d -s tpm \
             && tmux send-keys -t tpm.1 \". $path/bindings/install_plugins && exit\" ENTER" \
         "Tmux plugins"
 

@@ -16,6 +16,8 @@ alias :q="exit"
 alias aliases="alias | cut -c7- | bat -l ini --style=plain"
 alias ag="ag --color-line-number '0;91' --color-match '30;43' --color-path '1;36'"
 alias c="clear"
+
+# shellcheck disable=SC2139
 alias dfh="df -h $HOME"
 alias e="exa"
 alias g="git"
@@ -56,6 +58,7 @@ alias grf="fzf_git_reflog"
 
 # GPG
 
+# shellcheck disable=SC2139
 alias gpg="gpg2 --options $HOME/.gnupg/gpg.conf --options $HOME/.gnupg/gpg.conf.local"
 
 # Forget keys in gpg-agent

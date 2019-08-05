@@ -7,13 +7,6 @@ cd "$(dirname "${BASH_SOURCE[0]}")" \
 
 copy_fonts_locally() {
 
-    skipQuestions=false
-
-    skip_questions "$1" \
-        && skipQuestions=true
-
-    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
     local -r message="Activate downloaded fonts"
     local -r sourcePath="$HOME/.nix-profile/share/fonts"
 
@@ -30,7 +23,7 @@ copy_fonts_locally() {
     if [ -d "$sourcePath" ]; then
 
         execute \
-            "cp -f "$sourcePath"/*/* "$targetPath" \
+            "cp -f $sourcePath/*/* $targetPath \
                 && fc-cache -v" \
             "$message"
 

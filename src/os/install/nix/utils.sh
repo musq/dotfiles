@@ -54,7 +54,7 @@ nix_install() {
     declare -r PACKAGE="$2"
     declare -r PACKAGE_READABLE_NAME="$1"
 
-    local installedFlag="$(nix-env -qasA $PACKAGE | cut -c1)"
+    local installedFlag="$(nix-env -qasA "$PACKAGE" | cut -c1)"
 
     if [ "$installedFlag" == "I" ]; then
         print_success "$PACKAGE_READABLE_NAME"
@@ -103,7 +103,7 @@ upgrade() {
     # List down the attribute names of all the packages which are found
     # in this directory
 
-    if [ $(cmd_version grep) == "gnu" ]; then
+    if [ "$(cmd_version grep)" == "gnu" ]; then
         local packages=$(grep -r "nix_install " \
             | cut -d "\"" -f4 \
             | grep "nixpkgs" \

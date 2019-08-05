@@ -49,7 +49,7 @@ dus() {
 
 eq() {
     set -f
-    echo $@ | bc
+    echo "$@" | bc
     set +f
 }
 
@@ -68,7 +68,7 @@ fzf_find_edit() {
     )
 
     if [[ -n $files ]]; then
-        ${EDITOR:-vim} $files
+        ${EDITOR:-vim} "$files"
     fi
 
 }
@@ -92,7 +92,7 @@ fzf_git_add() {
     )
 
     if [[ -n $files ]]; then
-        git add --verbose $files
+        git add --verbose "$files"
     fi
 
 }
@@ -118,8 +118,8 @@ fzf_git_log() {
     )
 
     if [[ -n $commits ]]; then
-        local hashes=$(printf "$commits" | cut -d' ' -f2 | tr '\n' ' ')
-        git sh $hashes
+        local hashes=$(printf "%s" "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        git sh "$hashes"
     fi
 
 }
@@ -147,8 +147,8 @@ fzf_git_log_pickaxe() {
     )
 
     if [[ -n $commits ]]; then
-        local hashes=$(printf "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-        git sh $hashes
+        local hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
+        git sh "$hashes"
     fi
 
 }
@@ -170,7 +170,7 @@ fzf_git_reflog() {
         fi
     )
 
-    echo $hash
+    echo "$hash"
 
 }
 
@@ -182,13 +182,13 @@ fzf_git_reset() {
 
     local files=$(
         git diff --name-only --cached |
-            xargs -I '{}' realpath --relative-to=. $(git rev-parse --show-toplevel)/'{}' |
+            xargs -I '{}' realpath --relative-to=. "$(git rev-parse --show-toplevel)"/'{}' |
             sort --unique |
             fzf --ansi
     )
 
     if [[ -n $files ]]; then
-        git reset $files
+        git reset "$files"
     fi
 
 }
@@ -235,7 +235,7 @@ fzf_grep_edit(){
     local files=$(echo "$matches" | cut -d':' -f1)
 
     if [[ -n $files ]]; then
-        ${EDITOR:-vim} $files +$(echo "$matches" | cut -d':' -f2)
+        ${EDITOR:-vim} "$files" +"$(echo "$matches" | cut -d':' -f2)"
     fi
 
 }
@@ -336,7 +336,7 @@ mu() {
     if [ "$#" -eq 0 ]; then
         echo "Please provide at least one file";
     else
-        mupdf-x11 $@ &> /dev/null &
+        mupdf-x11 "$@" &> /dev/null &
     fi
 
 }
@@ -390,6 +390,7 @@ nlist() {
             args="uxw"
         fi
 
+        # shellcheck disable=SC2009
         ps "$args" | grep "$name"
 
     fi
@@ -426,6 +427,7 @@ z() {
         && _z "$@" \
         && return
 
+    # shellcheck disable=SC2164
     cd "$(_z -l 2>&1 \
             | sed 's/^[0-9,.]* *//' \
             | awk '{a[i++]=$0} END {for (j=i-1; j>=0;) print a[j--] }' \

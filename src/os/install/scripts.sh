@@ -13,7 +13,7 @@ save_script() {
     local -r path="$HOME/bin/$name"
 
     execute \
-        "wget -qO "$path" "$url" &> /dev/null \
+        "wget -qO $path $url &> /dev/null \
             && chmod +x $path" \
         "$name"
 

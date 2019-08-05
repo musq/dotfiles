@@ -14,7 +14,6 @@ set_prompts() {
     local pink=""
     local purple=""
     local red=""
-    local white=""
     local yellow=""
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -35,7 +34,6 @@ set_prompts() {
         pink="\[$(tput setaf 206)\]"
         purple="\[$(tput setaf 98)\]"
         red="\[$(tput setaf 203)\]"
-        white="\[$(tput setaf 15)\]"
         yellow="\[$(tput setaf 172)\]"
 
 
@@ -82,6 +80,7 @@ set_prompts() {
             ;&
         "" | "mini" | "micro")
             if [ -n "$IN_NIX_SHELL" ]; then
+                # shellcheck disable=SC1087
                 PS1+="$purple["
             fi
             PS1+="$dir_color\w"        # Working directory
@@ -94,6 +93,7 @@ set_prompts() {
             ;;
         "nano")
             if [ -n "$IN_NIX_SHELL" ]; then
+                # shellcheck disable=SC1087
                 PS1+="$purple["
             fi
             PS1+="$dir_color\W"        # Basename of working directory

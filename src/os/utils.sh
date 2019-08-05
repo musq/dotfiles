@@ -26,6 +26,7 @@ cmd_version() {
     "$1" --version 2> /dev/null \
         | grep --quiet "GNU"
 
+    # shellcheck disable=SC2181
     if [ $? -eq 0 ]; then
         printf "gnu"
     else

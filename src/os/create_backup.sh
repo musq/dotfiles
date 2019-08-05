@@ -73,7 +73,7 @@ copy_file() {
 
     if [[ -e "$1" && ! -L "$1" ]]; then
 
-        mkdir -p "$(dirname $2)"
+        mkdir -p "$(dirname "$2")"
 
         # If the source file is not a symlink, take a backup
         execute \
@@ -95,7 +95,7 @@ find_files_to_backup() {
         | grep "^\ *\".*\"$" \
         | sed -e :a -e ';$!N;s/\n/ /;ta')
 
-    printf "$files"
+    printf "%s" "$files"
 
 }
 
