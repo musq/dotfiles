@@ -1,0 +1,14 @@
+# For more information about the configurations used in
+# this file, please see the semantic-release documentation.
+#
+# https://semantic-release.gitbook.io
+
+branch: master
+
+ci: false
+
+plugins: [
+  '@semantic-release/commit-analyzer',
+  '@semantic-release/release-notes-generator',
+  '@semantic-release/github'
+]
