@@ -329,11 +329,11 @@
     #                     │        └─ decorations (branch, heads or tags)
     #                     └─ hash (abbreviated)
 
-    custom-reflog = "%C(cyan)%h %C(yellow)%gD %C(reset)%C(dim)%gs"
-    #                         │            │                   │
-    #                         │            │                   └─ reflog subject
-    #                         │            └─ reflog selector full
-    #                         └─ hash (abbreviated)
+    custom-reflog = "%C(magenta)%h %C(yellow)%gD %C(reset)%C(dim)%gs"
+    #                            │            │                   │
+    #                            │            │                   └─ reflog subject
+    #                            │            └─ reflog selector full
+    #                            └─ hash (abbreviated)
 
     custom-full = "%C(243)Commit: %C(168)%H%C(172)%d%n%C(243)Date:   %C(34)%ad (%ar)%n%C(243)Title:  %C(208)%s%n%C(243)Author: %C(37)%an <%ae>%n%C(243)Sign:   %C(142)%GS %GK%n%n%C(208 normal)%b"
     #                                     │        │                        │    │                           │                        │    │                           │   │                    │
