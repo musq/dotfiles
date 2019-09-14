@@ -51,6 +51,8 @@ create_full_path_symlinks() {
 
         "config/alacritty/alacritty.yml"
         "config/bat.conf"
+        "config/cmus/onedark-alt.theme"
+        "config/cmus/rc"
         "config/git/attributes"
         "config/git/commit-template"
         "config/git/config"
