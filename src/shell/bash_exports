@@ -17,6 +17,12 @@ export _Z_NO_RESOLVE_SYMLINKS=1
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Set Buku colors
+
+export BUKU_COLORS="bDfxg"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Set bat config path
 
 export BAT_CONFIG_PATH="$HOME/.config/bat.conf"
