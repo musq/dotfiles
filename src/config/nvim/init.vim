@@ -655,6 +655,7 @@ call plug#begin('~/.cache/vim/plugged')
   Plug 'mileszs/ack.vim'
   Plug 'mhinz/vim-startify'
   Plug 'musq/vim-autobackup'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'NLKNguyen/papercolor-theme'
   Plug 'raimondi/delimitmate'
   Plug 'rgarver/Kwbd.vim'
