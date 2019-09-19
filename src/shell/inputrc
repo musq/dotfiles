@@ -12,15 +12,6 @@ TAB: menu-complete
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Searching files via partial match.
-
-# ↑
-"\e[A":history-search-backward
-# ↓
-"\e[B":history-search-forward
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Disable beeping; Allow window flashing.
 
 set bell-style visible
@@ -53,6 +44,12 @@ set completion-map-case on
 # https://cirw.in/blog/bracketed-paste
 
 set enable-bracketed-paste on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Vim editing mode
+
+set editing-mode vi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -89,6 +86,15 @@ set skip-completed-text on
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Searching files via partial match.
+
+# ↑
+"\e[A":history-search-backward
+# ↓
+"\e[B":history-search-forward
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Mappings for Ctrl-left-arrow and Ctrl-right-arrow for word moving
 # https://github.com/alrra/dotfiles/issues/38#issuecomment-277527017
 
@@ -101,8 +107,3 @@ set skip-completed-text on
 "\e[1;2C":shell-forward-word
 # shift ←
 "\e[1;2D":shell-backward-word
-
-# fn →
-"\e[F":end-of-line
-# fn ←
-"\e[H":beginning-of-line
