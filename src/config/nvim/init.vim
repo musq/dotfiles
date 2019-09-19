@@ -98,6 +98,8 @@ set synmaxcol=2500             " Limit syntax highlighting (this
                                " avoids the very slow redrawing
                                " when files contain long lines).
 
+set textwidth=72               " Wrap text at column 72
+
 set tabstop=4                  " ┐
 set softtabstop=4              " │ Set global <TAB> settings.
 set shiftwidth=4               " │
