@@ -660,9 +660,7 @@ call plug#begin('~/.cache/vim/plugged')
   Plug 'rgarver/Kwbd.vim'
   Plug 'roman/golden-ratio'
   Plug 'sheerun/vim-polyglot'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'szw/vim-maximizer'
-  Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-surround'
@@ -695,15 +693,6 @@ call ChangeTheme(2)            " Change theme
 " Use silversearcher (ag) as file searcher
 
 let g:ackprg = 'ag --vimgrep'
-
-
-" ----------------------------------------------------------------------
-" | Plugins - Deoplete                                                 |
-" ----------------------------------------------------------------------
-
-" Enable at startup
-
-let g:deoplete#enable_at_startup = 1
 
 
 " ----------------------------------------------------------------------
