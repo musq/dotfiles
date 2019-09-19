@@ -269,7 +269,7 @@ function! ChangeTheme(themeId)
 
         highlight SLFilePath
             \ term=NONE
-            \ cterm=bold  ctermbg=244    ctermfg=52
+            \ cterm=bold  ctermbg=245    ctermfg=52
             \ gui=NONE    guibg=#c6c6c6  guifg=NONE
 
         highlight SLSeparator
