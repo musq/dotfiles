@@ -668,6 +668,7 @@ call plug#begin('~/.cache/vim/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'wellle/targets.vim'
   Plug 'whiteinge/diffconflicts'
+  Plug 'vifm/vifm.vim'
   Plug 'vim-scripts/ShowTrailingWhitespace'
   Plug 'Yggdroot/indentLine'
 
