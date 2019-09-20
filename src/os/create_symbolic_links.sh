@@ -60,6 +60,8 @@ create_full_path_symlinks() {
         "config/nvim/init.vim"
         "config/redshift.conf"
         "config/tmux/tmux.conf"
+        "config/vifm/colors/sane.vifm"
+        "config/vifm/vifmrc"
         "config/vim/vimrc"
 
         "gnupg/gpg.conf"
