@@ -110,8 +110,9 @@ export HISTFILESIZE=10000
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Don't add certain commands to the history file
+# Ignore any command with space in the beginning
 
-export HISTIGNORE="c:clear:exit:pwd"
+export HISTIGNORE="c:clear:exit:[ \t]*"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
