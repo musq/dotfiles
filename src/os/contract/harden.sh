@@ -30,6 +30,7 @@ set_permissions() {
 
 main() {
 
+    set_permissions "$HOME/.credentials"
     set_permissions "$HOME/.gnupg"
     set_permissions "$HOME/.ssh"
 

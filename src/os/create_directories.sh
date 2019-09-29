@@ -14,6 +14,7 @@ create_directories() {
         "$HOME/.cache/vim/swaps"
         "$HOME/.cache/vim/undos"
         "$HOME/.config"
+        "$HOME/.credentials"
         "$HOME/.local/share/vim"
         "$HOME/.ssh/sockets"
         "$HOME/bin"
