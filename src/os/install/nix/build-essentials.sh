@@ -24,6 +24,6 @@ case "$(get_os_kernel)" in
         nix_install "Pinentry (GnuPG)" "nixpkgs.pinentry_mac" "$@"
         ;;
     Linux)
-        nix_install "Pinentry (Qt)" "nixpkgs.pinentry_qt5" "$@"
+        nix_install "Pinentry" "nixpkgs.pinentry" "$@"
         ;;
 esac
