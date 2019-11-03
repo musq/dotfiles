@@ -5,6 +5,14 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Vim editing mode
+# Always keep this line on top of everything else to allow menu-complete
+# history-searches and other behaviours
+
+set -o vi
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Set the appropriate umask
 
 umask 022
