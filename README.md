@@ -124,7 +124,11 @@ git pull origin master
 
 Pass `-y` or `--yes` to automatically answer yes to all the questions.
 
-`./src/os/setup.sh -y`
+| Tool | Snippet |
+|:---|:---|
+| `Manual` | `./src/os/setup.sh -y` |
+| `wget` | `bash -c "$(wget -qO - https://raw.githubusercontent.com/musq/dotfiles/master/src/os/setup.sh) -y"` |
+| `cURL` | `bash -c "$(curl -LsS https://raw.githubusercontent.com/musq/dotfiles/master/src/os/setup.sh) -y"` |
 
 
 ## Screenshots
