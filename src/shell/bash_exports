@@ -98,7 +98,7 @@ export GIT_PS1_SHOWUPSTREAM="verbose"
 
 # Ignore commands that are duplicates
 
-export HISTCONTROL=ignoredups
+export HISTCONTROL=ignoreboth
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -110,9 +110,8 @@ export HISTFILESIZE=10000
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Don't add certain commands to the history file
-# Ignore any command with space in the beginning
 
-export HISTIGNORE="c:clear:exit:[ \t]*"
+export HISTIGNORE="c:clear:exit"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
