@@ -175,10 +175,7 @@ export PIPENV_VENV_IN_PROJECT="true"
 # Make new shells get the history lines from all previous
 # shells instead of the default "last window closed" history
 
-[[ "$PROMPT_COMMAND" != *"history -a;"* ]] \
-    && PROMPT_COMMAND="history -a; ${PROMPT_COMMAND}"
-
-export PROMPT_COMMAND
+export PROMPT_COMMAND="history -a;"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
