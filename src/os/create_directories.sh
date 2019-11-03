@@ -19,7 +19,6 @@ create_directories() {
         "$HOME/.ssh/sockets"
         "$HOME/bin"
         "$HOME/projects"
-        "$HOME/tools"
     )
 
     for i in "${DIRECTORIES[@]}"; do
