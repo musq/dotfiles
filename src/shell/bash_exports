@@ -122,6 +122,12 @@ export HISTSIZE=10000
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Record the timestamp of each command
+
+export HISTTIMEFORMAT="%F %T "
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Prefer US English and use UTF-8 encoding
 
 export LANG="en_US"
