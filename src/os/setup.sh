@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare -r GITHUB_REPOSITORY="musq/dotfiles"
 

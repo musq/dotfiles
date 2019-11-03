@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 answer_is_yes() {
     [[ "$REPLY" =~ ^[Yy]$ ]] \

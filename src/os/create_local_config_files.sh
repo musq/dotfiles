@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 cd "$(dirname "${BASH_SOURCE[0]}")" \
     && . "utils.sh"
@@ -54,7 +54,7 @@ create_bash_local() {
         mkdir -p "$(dirname "$FILE_PATH")"
 
         printf "%s" \
-"#!/bin/bash
+"#!/usr/bin/env bash
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -" \
         > "$FILE_PATH"

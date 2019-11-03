@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -f "autocomplete/$OS/bash_autocomplete" ]; then
     . "autocomplete/$OS/bash_autocomplete"

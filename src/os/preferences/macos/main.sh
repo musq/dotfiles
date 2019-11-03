@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # shellcheck disable=SC2164
 cd "$(dirname "${BASH_SOURCE[0]}")"
