@@ -407,6 +407,24 @@ ps1() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Install nix packages
+
+xei() {
+
+    local args=""
+
+    for i in "$@"; do
+        args="$args nixpkgs.$i"
+    done
+
+    echo "nix-env -iA$args"
+
+    echo "$args" | xargs nix-env -iA
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Search nix packages
 
 xes() {
