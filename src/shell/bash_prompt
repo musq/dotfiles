@@ -6,6 +6,8 @@ set_prompts() {
 
     local reset=$(tput sgr0 2> /dev/null)
 
+    local bgGrey=""
+
     local cyan=""
     local emerald=""
     local green=""
@@ -25,6 +27,8 @@ set_prompts() {
 
         # Escape color literals to avoid commandline overwriting itself
         # https://stackoverflow.com/questions/2024884/commandline-overwrites-itself-when-the-commands-get-too-long#answer-9486356
+
+        bgGrey="\[$(tput setab 233)\]"
 
         cyan="\[$(tput setaf 74)\]"
         emerald="\[$(tput setaf 70)\]"
@@ -70,6 +74,7 @@ set_prompts() {
     PS1="\[\033]0;\W\007\]" # Terminal title (set to the
                             # current working directory)
     PS1+="\[$(tput bold)\]" # Set everything to bold from here
+    PS1+="$bgGrey"          # Set background to dark from here
 
     case $1 in
         "")
@@ -129,9 +134,9 @@ set_prompts() {
             ;;
     esac
 
-    PS1+="$prompt_color$prompt_value "  # Prompt
+    PS1+="$prompt_color$prompt_value"   # Prompt
 
-    PS1+="\[$reset\]"             # Reset everthing from here
+    PS1+="\[$reset\] "          # Reset everthing from here
 
     if [ "$1" = "micro" ]; then
         export PROMPT_DIRTRIM=2
