@@ -20,8 +20,8 @@ create_assh_local() {
   # Templates are similar to Hosts; you can inherit from them
   # but you cannot ssh to a template
   forward-gpg:
-    # Local-Socket  -> gpgconf --list-dir agent-extra-socket
     # Remote-Socket -> gpgconf --list-dir agent-socket
+    # Local-Socket  -> gpgconf --list-dir agent-extra-socket
     RemoteForward: Remote-Socket Local-Socket
   forward-ssh:
     ForwardAgent: yes
@@ -34,7 +34,8 @@ hosts:
 #    ControlMaster: auto
 #    Inherits:
 #    - forward-gpg
-#    - forward-ssh" \
+#    - forward-ssh
+#    - low-security" \
         > "$FILE_PATH"
 
     fi
