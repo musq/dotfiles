@@ -14,7 +14,7 @@ nix_build "glibcLocales" "glibcLocales"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-nix_install "Bash v5" "nixpkgs.bash_5"
+nix_install "Bash" "nixpkgs.bash_5"
 nix_install "Coreutils" "nixpkgs.coreutils-full"
 nix_install "GnuPG" "nixpkgs.gnupg"
 nix_install "Less" "nixpkgs.less"
