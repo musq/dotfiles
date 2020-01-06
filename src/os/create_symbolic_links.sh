@@ -64,6 +64,7 @@ create_full_path_symlinks() {
         "config/vifm/vifmrc"
         "config/vim/vimrc"
 
+        "gnupg/dirmngr.conf"
         "gnupg/gpg.conf"
         "gnupg/gpg-agent.conf"
 
