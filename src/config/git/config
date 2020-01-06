@@ -146,6 +146,17 @@
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+    # Grep on all dangling blobs.
+
+    fsgrep = "!f() { \
+        git fsck --full | \
+        cut -d' ' -f3 | \
+        xargs -n1 -t git cat-file -p | \
+        grep --color=auto \"$1\"; \
+    }; f"
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     # List remote branches.
 
     lrb = "!f() { \
