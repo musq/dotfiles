@@ -363,6 +363,10 @@
     instructionFormat = "[%an - %ar] %s"
     autoStash = true
 
+[url "git@github.com:"]
+	pushInsteadOf = "git://github.com/"
+	pushInsteadOf = "https://github.com/"
+
 [user]
 
     # Don't guess the user's identity.
