@@ -68,7 +68,8 @@ fzf_find_edit() {
     )
 
     if [[ -n $files ]]; then
-        ${EDITOR:-vim} "$files"
+        # shellcheck disable=SC2086
+        ${EDITOR:-vim} $files
     fi
 
 }
@@ -92,7 +93,8 @@ fzf_git_add() {
     )
 
     if [[ -n $files ]]; then
-        git add --verbose "$files"
+        # shellcheck disable=SC2086
+        git add --verbose $files
     fi
 
 }
@@ -119,7 +121,8 @@ fzf_git_log() {
 
     if [[ -n $commits ]]; then
         local hashes=$(printf "%s" "$commits" | cut -d' ' -f2 | tr '\n' ' ')
-        git sh "$hashes"
+        # shellcheck disable=SC2086
+        git sh $hashes
     fi
 
 }
@@ -148,7 +151,8 @@ fzf_git_log_pickaxe() {
 
     if [[ -n $commits ]]; then
         local hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-        git sh "$hashes"
+        # shellcheck disable=SC2086
+        git sh $hashes
     fi
 
 }
@@ -161,8 +165,8 @@ fzf_git_reflog() {
 
     local hash=$(
         if [ "$FZF_PREVIEW" -eq 1 ]; then
-            git reflog --color=always "$@" |
-                fzf --no-multi --ansi --no-sort --height 100% \
+            git rf --color=always "$@" |
+                fzf --ansi --no-sort --height 100% \
                     --preview "git sh --color=always {1}"
         else
             git reflog --color=always "$@" |
@@ -188,7 +192,8 @@ fzf_git_reset() {
     )
 
     if [[ -n $files ]]; then
-        git reset "$files"
+        # shellcheck disable=SC2086
+        git reset $files
     fi
 
 }
@@ -232,10 +237,16 @@ fzf_grep_edit(){
         )
     fi
 
-    local files=$(echo "$matches" | cut -d':' -f1)
+    # https://stackoverflow.com/a/28101809
+
+    files=$(echo "$matches" \
+        | cut -d':' -f1,2 \
+        | sed 's/:/|:/' \
+        | sed 's/^/:e /' \
+        |sed 's/$/|/')
 
     if [[ -n $files ]]; then
-        ${EDITOR:-vim} "$files" +"$(echo "$matches" | cut -d':' -f2)"
+        ${EDITOR:-vim} -c "$files" +/"$1"
     fi
 
 }

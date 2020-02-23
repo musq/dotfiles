@@ -20,6 +20,7 @@ main() {
         ! -path '../src/os/preferences/macos/*.applescript' \
         ! -path '../src/os/preferences/macos/*.terminal' \
         ! -path '../src/shell/curlrc' \
+        ! -path '../src/shell/ignore' \
         ! -path '../src/shell/inputrc' \
         ! -path '../src/shell/wgetrc' \
         ! -path '../src/shell/profile.d/*' \
