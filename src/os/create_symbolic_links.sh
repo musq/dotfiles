@@ -20,6 +20,7 @@ create_symlinks() {
         "shell/bashrc"
         "shell/colors/bash_colors"
         "shell/curlrc"
+        "shell/ignore"
         "shell/inputrc"
         "shell/profile.d"
         "shell/wgetrc"
