@@ -34,7 +34,7 @@ upgrade
 ./fonts.sh "$full"
 ./git.sh
 ./misc.sh "$full"
-./misc-tools.sh
+./misc-tools.sh "$full"
 ./navigators.sh
 ./python.sh
 
