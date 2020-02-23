@@ -96,7 +96,7 @@
     # Find commits by source code.
 
     cc = "!f() { \
-        git log --pretty=custom --decorate --date=short -S\"$1\"; \
+        git log --pretty=custom --decorate --date=short --regexp-ignore-case -S\"$1\"; \
     }; f"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -122,7 +122,7 @@
     # Find commits by commit message.
 
     cm = "!f() { \
-        git log --pretty=custom --decorate --date=short --grep=\"$1\"; \
+        git log --pretty=custom --decorate --date=short --regexp-ignore-case --grep=\"$1\"; \
     }; f"
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
