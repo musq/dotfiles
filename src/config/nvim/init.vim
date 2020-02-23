@@ -543,11 +543,7 @@ nmap <leader>fd :GFiles <CR>
 
 " [<SPC>fg] Open GFiles in file grep mode.
 
-if executable('rg')
-    nmap <leader>fg :Rg <CR>
-else
-    nmap <leader>fg :Ag <CR>
-endif
+nmap <leader>fg :Rg <CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -692,9 +688,10 @@ call ChangeTheme(2)            " Change theme
 " | Plugins - ack                                                      |
 " ----------------------------------------------------------------------
 
-" Use silversearcher (ag) as file searcher
+" Use ripgrep as file searcher
 
-let g:ackprg = 'ag --vimgrep'
+let g:ackprg = 'rg --vimgrep'
+
 
 
 " ----------------------------------------------------------------------
