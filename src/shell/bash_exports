@@ -44,7 +44,7 @@ export FZF_PREVIEW=1
 # Set default fzf command
 
 if cmd_exists "fd"; then
-    export FZF_DEFAULT_COMMAND='fd --type f --color=never'
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --color=never'
 else
     export FZF_DEFAULT_COMMAND='find * -type f'
 fi
@@ -54,7 +54,7 @@ fi
 # Change to a fuzzy found sub-directory
 
 if cmd_exists "fd"; then
-    export FZF_ALT_C_COMMAND='fd --type d . --color=never'
+    export FZF_ALT_C_COMMAND='fd --type d --hidden --color=never'
 else
     export FZF_ALT_C_COMMAND='find * -type d'
 fi
