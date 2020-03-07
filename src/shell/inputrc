@@ -5,14 +5,6 @@
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Vim editing mode
-# Always keep this line on top of everything else to allow menu-complete
-# history-searches and other behaviours
-
-set editing-mode vi
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # If there are multiple matches for completion,
 # make TAB cycle through them.
 
@@ -52,6 +44,12 @@ set completion-map-case on
 # https://cirw.in/blog/bracketed-paste
 
 set enable-bracketed-paste on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Vim editing mode
+
+set editing-mode vi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
