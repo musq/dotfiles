@@ -11,4 +11,4 @@ print_in_purple "\n   Git\n\n"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 nix_install "Git" "nixpkgs.gitAndTools.gitFull"
-nix_install "diff-so-fancy" "nixpkgs.gitAndTools.diff-so-fancy"
+nix_install "delta" "nixpkgs.gitAndTools.delta"

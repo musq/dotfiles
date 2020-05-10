@@ -269,7 +269,7 @@
     autocrlf = input
     editor = nvim
     excludesfile = ~/.config/git/ignore
-    pager = less -FRX --tabs=4
+    pager = delta --theme='TwoDark'
 
 [credential]
 
@@ -293,9 +293,6 @@
 
     textconv = hexdump -v -C
 
-[diff-so-fancy]
-
-    markEmptyLines = true
 
 [difftool]
 
@@ -325,11 +322,6 @@
 
     cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
     trustExitCode = true
-
-[pager]
-
-    diff = "diff-so-fancy | less -FRX --tabs=4"
-    show = "diff-so-fancy | less -FRX --tabs=4"
 
 [pretty]
 
