@@ -544,6 +544,14 @@ nmap <leader>wz :MaximizerToggle!<CR>
 
 nmap <leader>W :w !sudo tee %<CR>
 
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" Better indentation
+" https://youtu.be/YhqsjUUHj6g?t=968
+
+vnoremap < <gv
+vnoremap > >gv
+
 
 
 " ----------------------------------------------------------------------

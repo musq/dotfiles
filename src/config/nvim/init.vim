@@ -617,6 +617,13 @@ nmap <leader>W :w !sudo tee %<CR>
 
 nmap <leader>x :cclose<CR>
 
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" Better indentation
+" https://youtu.be/YhqsjUUHj6g?t=968
+
+vnoremap < <gv
+vnoremap > >gv
 
 
 " ----------------------------------------------------------------------
