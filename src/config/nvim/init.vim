@@ -674,6 +674,7 @@ call plug#begin('~/.cache/vim/plugged')
   Plug 'szw/vim-maximizer'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-speeddating'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-unimpaired'
   Plug 'wellle/targets.vim'
