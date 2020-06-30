@@ -493,6 +493,13 @@ let mapleader = " "
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+" Use + and _ to increment and decrement numbers
+
+nmap + <C-a>
+nmap _ <C-x>
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 " [<C-m>] Open fzf buffer finder using 'Enter'
 
 nmap <C-m> :Buffers <CR>
