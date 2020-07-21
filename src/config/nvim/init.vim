@@ -708,6 +708,14 @@ call ChangeTheme(2)            " Change theme
 let g:ackprg = 'rg --vimgrep'
 
 
+" ----------------------------------------------------------------------
+" | Plugins - Filebeagle                                               |
+" ----------------------------------------------------------------------
+
+" Show hidden files
+
+let g:filebeagle_show_hidden=1
+
 
 " ----------------------------------------------------------------------
 " | Plugins - Gitgutter                                                |
