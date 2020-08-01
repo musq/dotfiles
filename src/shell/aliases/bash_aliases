@@ -50,6 +50,7 @@ alias ff="fzf_find_edit"
 alias ffg="fzf_grep_edit"
 
 alias ga="fzf_git_add"
+alias gd="fzf_git_diff"
 alias gl="fzf_git_log"
 alias gpx="fzf_git_log_pickaxe"
 alias gr="fzf_git_reset"

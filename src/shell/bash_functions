@@ -101,6 +101,30 @@ fzf_git_add() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Fuzzy git diff
+
+fzf_git_diff() {
+
+    # https://stackoverflow.com/a/45111524
+
+    local files=$(
+        git diff "$@" --name-only |
+            xargs -I '{}' realpath \
+                --relative-to=. "$(git rev-parse --show-toplevel)"/'{}' |
+            fzf --ansi --no-sort --height 100% \
+                --preview "echo {} |
+                    xargs -I@ sh -c 'git d $* --color=always @'"
+    )
+
+    if [[ -n $files ]]; then
+        # shellcheck disable=SC2086
+        git d "$@" $files
+    fi
+
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Fuzzy search in git logs.
 
 fzf_git_log() {
