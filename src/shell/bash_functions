@@ -132,20 +132,20 @@ fzf_git_log() {
 
     local commits=$(
         if [ "$FZF_PREVIEW" -eq 1 ]; then
-            git l --color=always "$@" |
+            git log --pretty=custom --color=always "$@" |
                 fzf --ansi --no-sort --height 100% \
                     --preview "echo {} |
                         grep -o '[a-f0-9]\{7\}' |
                         head -1 |
                         xargs -I@ sh -c 'git sh --color=always @'"
         else
-            git l --color=always "$@" |
+            git log --pretty=custom --color=always "$@" |
                 fzf --ansi --no-sort --height 100%
         fi
     )
 
     if [[ -n $commits ]]; then
-        local hashes=$(printf "%s" "$commits" | cut -d' ' -f2 | tr '\n' ' ')
+        local hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
         # shellcheck disable=SC2086
         git sh $hashes
     fi
