@@ -87,7 +87,8 @@ fzf_git_add() {
             --others \
             --killed \
             --directory \
-            --no-empty-directory |
+            --no-empty-directory \
+            --exclude-standard |
             sort --unique |
             fzf --ansi
     )
