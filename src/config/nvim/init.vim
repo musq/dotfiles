@@ -14,7 +14,6 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Actual plugins
 Plug 'editorconfig/editorconfig-vim'
-Plug 'google/vim-searchindex'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
