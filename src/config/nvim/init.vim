@@ -163,8 +163,8 @@ set winminheight=0             " Allow windows to be squashed
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 " Use + and _ to increment and decrement numbers
-nnoremap + <C-a>
-nnoremap _ <C-x>
+nnoremap + <C-A>
+nnoremap _ <C-X>
 
 " Open fzf buffer switcher
 nnoremap <TAB> :Buffers<CR>
@@ -180,7 +180,7 @@ nnoremap Y y$
 " Ignore Q press, because Ex mode is dumb
 nnoremap Q <Nop>
 " Open fzf file browser
-nnoremap <C-p> :Files<CR>
+nnoremap <C-P> :Files<CR>
 
 " Better indentation
 " https://youtu.be/YhqsjUUHj6g?t=968
