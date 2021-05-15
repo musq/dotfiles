@@ -168,7 +168,14 @@ nnoremap + <C-a>
 nnoremap _ <C-x>
 
 " Open fzf buffer switcher
-nnoremap <Tab> :Buffers<CR>
+nnoremap <TAB> :Buffers<CR>
+" HACK!!
+" We mapped TAB to :Buffers, now we need to map <C-I> to jump forward.
+" But <C-I> is interpreted as <TAB> by shells. We achieve this by adding
+" a key modifier in Alacritty to emulate <C-N>i on pressing <C-I>. Then
+" we map <C-N>i to <C-I>.
+" https://vi.stackexchange.com/a/25015
+nnoremap <C-N>i <C-I>
 " Pressing Y should copy to end of line
 nnoremap Y y$
 " Ignore Q press, because Ex mode is dumb
