@@ -67,6 +67,8 @@ alias gpg="gpg2 --options $HOME/.gnupg/gpg.conf --options $HOME/.gnupg/gpg.conf.
 alias gafk="gpg-connect-agent reloadagent /bye"
 # List keys in gpg-agent
 alias galk="gpg-connect-agent 'keyinfo --list' /bye"
+# Reset tty in a tmux window to use pinentry-ncurses
+alias gat="gpg-connect-agent updatestartuptty /bye"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
