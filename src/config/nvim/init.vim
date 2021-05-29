@@ -14,6 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Actual plugins
 Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/tagbar'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
@@ -58,6 +59,8 @@ filetype plugin indent on
 "           │     │    └──── Enable file type detection
 "           │     └───────── Enable loading of indent file
 "           └─────────────── Enable loading of plugin files
+
+set autoread
 
 set backspace=indent           " ┐
 set backspace+=eol             " │ Allow `backspace` in insert mode
