@@ -1,5 +1,6 @@
-# <type>(<scope>): (If applied, this commit will...) <subject>
+
 # |<----  Using a Maximum of 50 Characters  ---->|
+# <type>(<scope>): (If applied, this commit will...) <subject>
 
 
 # Explain why this change is being made
