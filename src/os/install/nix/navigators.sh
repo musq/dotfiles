@@ -10,6 +10,7 @@ print_in_purple "\n   Navigators\n\n"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+nix_install "ctags" "nixpkgs.ctags"
 nix_install "exa" "nixpkgs.exa"
 nix_install "fd" "nixpkgs.fd"
 nix_install "fzf" "nixpkgs.fzf"
