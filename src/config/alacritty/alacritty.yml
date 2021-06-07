@@ -66,7 +66,7 @@ font:
     family: "Iosevka Term"
 
     # The `style` can be specified to pick a specific face.
-    style: Regular
+    style: Light
 
   # Bold font face
   bold:
@@ -77,7 +77,7 @@ font:
     family: "Iosevka Term"
 
     # The `style` can be specified to pick a specific face.
-    style: Bold
+    style: Semibold
 
   # Italic font face
   italic:
@@ -88,16 +88,16 @@ font:
     family: "Iosevka Term"
 
     # The `style` can be specified to pick a specific face.
-    style: "Italic"
+    style: "Light Italic"
 
   # Point size
-  size: 13.0
+  size: 17
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
     x: 0
-    y: 0
+    y: 4
 
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: false
