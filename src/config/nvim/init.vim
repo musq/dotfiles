@@ -345,15 +345,6 @@ augroup END
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" Run linters Black and Flake8 on python files
-augroup run_black_and_flake8
-    autocmd!
-    autocmd BufWritePre *.py execute ':Black'
-    autocmd BufWritePost *.py call Flake8()
-augroup END
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 function TogglePageBoundaries()
     " Git commit message should be 50 characters
     " http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html

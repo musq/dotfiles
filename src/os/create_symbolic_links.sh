@@ -64,6 +64,7 @@ create_full_path_symlinks() {
         "config/git/template/hooks/post-merge"
         "config/git/template/hooks/post-rewrite"
         "config/nvim/init.vim"
+        "config/nvim/ftplugin/python.vim"
         "config/redshift.conf"
         "config/tmux/tmux.conf"
         "config/vifm/colors/sane.vifm"
