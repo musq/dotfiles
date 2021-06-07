@@ -59,6 +59,9 @@
     # Web
     web  = instaweb --httpd=webrick         # Start web-based visualizer.
 
+    # Ctags
+    ctags = ! ~/.config/git/template/hooks/ctags
+
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     # Find commits by source code.
@@ -301,6 +304,10 @@
 [icdiff]
 
     options = --color-map=description:cyan --numlines=3
+
+[init]
+
+    templatedir = ~/.config/git/template
 
 [grep]
 
