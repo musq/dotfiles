@@ -25,6 +25,10 @@ Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'whiteinge/diffconflicts'
 
+" Python
+Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
+Plug 'nvie/vim-flake8'
+
 " Meta plugins
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'farmergreg/vim-lastplace'
@@ -337,6 +341,15 @@ endfunction
 augroup strip_trailing_whitespaces
     autocmd!
     autocmd BufWritePre * call StripTrailingWhitespaces()
+augroup END
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" Run linters Black and Flake8 on python files
+augroup run_black_and_flake8
+    autocmd!
+    autocmd BufWritePre *.py execute ':Black'
+    autocmd BufWritePost *.py call Flake8()
 augroup END
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
