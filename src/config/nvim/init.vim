@@ -82,6 +82,7 @@ endif                          " ┘
 
 set cursorline                 " Highlight the current line
 set encoding=utf-8 nobomb      " Use UTF-8 without BOM
+set fileencoding=utf-8 nobomb  " Use UTF-8 encoding to write to file
 set fillchars+=vert:│          " Set vertical separator
 set history=5000               " Increase command line history
 
