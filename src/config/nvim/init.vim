@@ -201,6 +201,12 @@ vnoremap > >gv
 " Use SPACE as mapleader
 let mapleader = " "
 
+" Search current word under cursor using Rg
+nnoremap <leader>a :Rg <C-R><C-W><CR>
+" Use fzf on the resultant search-list to only filter by line content,
+" not by file name
+command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case ".shellescape(<q-args>), 1, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
 " Close buffer without closing window
 nnoremap <leader>bd :Kwbd<CR>
 " Create an empty buffer
