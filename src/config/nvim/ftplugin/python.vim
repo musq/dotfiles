@@ -3,9 +3,8 @@ setlocal textwidth=88               " Wrap text at column 88
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-" Run linters Black and Flake8
-augroup run_black_and_flake8
-    autocmd!
-    autocmd BufWritePre *.py execute ':Black'
-    autocmd BufWritePost *.py call Flake8()
-augroup END
+" Use Ale to lint
+let b:ale_linters = ['flake8', 'mypy']
+
+" Use Ale to fix linting issues
+let b:ale_fixers = ['isort', 'black']

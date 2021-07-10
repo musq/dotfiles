@@ -14,6 +14,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Actual plugins
 Plug 'editorconfig/editorconfig-vim'
+Plug 'dense-analysis/ale'
 Plug 'preservim/tagbar'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-commentary'
@@ -24,10 +25,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'wellle/targets.vim'
 Plug 'whiteinge/diffconflicts'
-
-" Python
-Plug 'psf/black', { 'commit': 'ce14fa8b497bae2b50ec48b3bd7022573a59cdb1' }
-Plug 'nvie/vim-flake8'
 
 " Meta plugins
 Plug 'christoomey/vim-tmux-navigator'
@@ -51,6 +48,10 @@ Plug 'Yggdroot/indentLine'
 call plug#end()
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+" Use Ale to fix linting issues in files on saving
+" Fixers are specified in the corresponding ftplugin/lang.vim
+let g:ale_fix_on_save = 1
 
 " Show hidden files in filebeagle
 let g:filebeagle_show_hidden=1
