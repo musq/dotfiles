@@ -242,7 +242,7 @@ let g:neodark#solid_vertsplit = 1
 
 highlight ColorColumn   cterm=NONE      ctermbg=237     ctermfg=NONE
 highlight Comment       cterm=italic    ctermbg=NONE    ctermfg=242
-highlight CursorLine    cterm=NONE      ctermbg=239     ctermfg=NONE
+highlight CursorLine    cterm=NONE      ctermbg=237     ctermfg=NONE
 highlight CursorLineNr  cterm=bold      ctermbg=NONE    ctermfg=130
 highlight LineNr        cterm=NONE      ctermbg=NONE    ctermfg=241
 
