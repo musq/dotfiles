@@ -122,7 +122,6 @@ set nowrap                     " Disable wraps
 set number                     " Show line number
 set numberwidth=4              " Increase the minimal number of columns
                                " reserved for the `line number`
-set relativenumber             " Set relative line number
 
 set report=0                   " Report the number of lines changed
 set ruler                      " Show cursor position
