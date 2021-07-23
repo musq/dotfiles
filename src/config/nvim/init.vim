@@ -309,7 +309,6 @@ set statusline+=%#SLFileType#  " Filetype highlight
 set statusline+=\ %y           " File type
 set statusline+=\              " Separator
 set statusline+=%#SLRowColumns#     " Row-columns highlight
-set statusline+=\ (%L)         " Total number of lines
 set statusline+=\ %l           " Current line number
 set statusline+=:
 set statusline+=%c\            " Current column number
