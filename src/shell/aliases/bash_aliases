@@ -27,7 +27,7 @@ alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
 alias l="less"
 alias ll="exa --long --all --group --time=modified"
 alias m="man"
-alias p='python'
+alias p='python3'
 alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias please='sudo !!'
 alias pping='prettyping --nolegend'
