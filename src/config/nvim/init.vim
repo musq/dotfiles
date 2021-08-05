@@ -271,7 +271,7 @@ highlight LineNr        cterm=NONE      ctermbg=NONE    ctermfg=241
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 highlight CurrentWord       cterm=underline ctermbg=53  ctermfg=NONE
-highlight CurrentWordTwins  cterm=underline ctermbg=238 ctermfg=NONE
+highlight CurrentWordTwins  cterm=underline ctermbg=237 ctermfg=NONE
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
