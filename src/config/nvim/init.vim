@@ -334,6 +334,16 @@ augroup END
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+" Automatically resize Vim when zooming in and out a tmux pane
+" https://bluz71.github.io/2021/09/10/vim-tips-revisited.html#automatically-equalize-splits-when-vim-is-resized
+
+augroup equalize_splits_when_vim_resized
+    autocmd!
+    autocmd VimResized * wincmd =
+augroup END
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 function StripTrailingWhitespaces()
     " Save last search and cursor position
     let searchHistory = @/
