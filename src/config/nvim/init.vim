@@ -217,6 +217,8 @@ nnoremap <leader>bn :enew<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 " Open fzf Git file browser
 nnoremap <leader>fd :GFiles<CR>
+" Run fugitive's Git blame
+nnoremap <leader>gb :Git blame<CR>
 " Toggle absolute/relative line numbering
 nnoremap <leader>tn :set relativenumber!<CR>
 " Toggle page boundary
