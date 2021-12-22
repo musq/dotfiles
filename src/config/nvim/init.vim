@@ -183,6 +183,10 @@ nnoremap _ <C-X>
 nnoremap c "_c
 nnoremap C "_C
 
+" Go to prev/next ALE error/warning
+nnoremap [f :ALEPrevious<CR>
+nnoremap ]f :ALENext<CR>
+
 " Open fzf buffer switcher
 nnoremap <TAB> :Buffers<CR>
 " HACK!!
