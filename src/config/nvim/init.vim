@@ -177,6 +177,12 @@ set winminheight=0             " Allow windows to be squashed
 nnoremap + <C-A>
 nnoremap _ <C-X>
 
+" Redirect change operations to the blackhole, so that changing a text
+" does not overwrite out clipboard
+" https://bluz71.github.io/2021/09/10/vim-tips-revisited.html#redirect-change-operations-to-the-blackhole
+nnoremap c "_c
+nnoremap C "_C
+
 " Open fzf buffer switcher
 nnoremap <TAB> :Buffers<CR>
 " HACK!!
