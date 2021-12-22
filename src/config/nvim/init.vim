@@ -136,6 +136,8 @@ set showcmd                    " Show the command being typed
 set showmode                   " Show current mode
 set spelllang=en_us            " Set the spellchecking language
 
+set signcolumn=number          " Place ALE signs over the top of line numbers
+
 set ignorecase                 " Ignore case in search patterns
 set smartcase                  " Override `ignorecase` option if the search
                                " pattern contains uppercase characters
