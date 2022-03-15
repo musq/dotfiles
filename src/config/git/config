@@ -272,7 +272,7 @@
     autocrlf = input
     editor = nvim
     excludesfile = ~/.config/git/ignore
-    pager = delta --theme='TwoDark'
+    pager = delta --syntax-theme='TwoDark'
 
 [credential]
 
