@@ -52,6 +52,7 @@ call plug#end()
 " Use Ale to fix linting issues in files on saving
 " Fixers are specified in the corresponding ftplugin/lang.vim
 let g:ale_fix_on_save = 1
+let g:ale_fixers = {'*': ['trim_whitespace']}
 
 " Show hidden files in filebeagle
 let g:filebeagle_show_hidden=1
@@ -357,26 +358,6 @@ augroup END
 augroup equalize_splits_when_vim_resized
     autocmd!
     autocmd VimResized * wincmd =
-augroup END
-
-" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-function StripTrailingWhitespaces()
-    " Save last search and cursor position
-    let searchHistory = @/
-    let cursorLine = line(".")
-    let cursorColumn = col(".")
-    " Strip trailing whitespaces from current buffer
-    %s/\s\+$//e
-    " Restore previous search history and cursor position
-    let @/ = searchHistory
-    call cursor(cursorLine, cursorColumn)
-endfunction
-
-" Automatically strip trailing whitespaces when files are saved
-augroup strip_trailing_whitespaces
-    autocmd!
-    autocmd BufWritePre * call StripTrailingWhitespaces()
 augroup END
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
