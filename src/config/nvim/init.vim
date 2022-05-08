@@ -229,6 +229,8 @@ nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>fd :GFiles<CR>
 " Run fugitive's Git blame
 nnoremap <leader>gb :Git blame<CR>
+" Toggle window diff
+nnoremap <leader>td :call ToggleWindowDiff()<CR>
 " Toggle absolute/relative line numbering
 nnoremap <leader>tn :set relativenumber!<CR>
 " Toggle page boundary
@@ -386,5 +388,19 @@ function TogglePageBoundaries()
         set colorcolumn+=51,81
     else
         set colorcolumn-=51,81
+    endif
+endfunction
+
+" - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+function ToggleWindowDiff()
+    let w:windowdiffstatus = get(w:, 'windowdiffstatus', "off")
+
+    if ( w:windowdiffstatus == "off" )
+        execute "windo diffthis"
+        let w:windowdiffstatus ="on"
+    else
+        execute "windo diffoff"
+        let w:windowdiffstatus ="off"
     endif
 endfunction
