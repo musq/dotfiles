@@ -52,7 +52,7 @@ call plug#end()
 " Use Ale to fix linting issues in files on saving
 " Fixers are specified in the corresponding ftplugin/lang.vim
 let g:ale_fix_on_save = 1
-let g:ale_fixers = {'*': ['trim_whitespace']}
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace']}
 
 " Show hidden files in filebeagle
 let g:filebeagle_show_hidden=1
