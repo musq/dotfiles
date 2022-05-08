@@ -24,6 +24,7 @@ create_symlinks() {
         "shell/inputrc"
         "shell/profile.d"
         "shell/wgetrc"
+        "config/astylerc"
 
     )
 
@@ -64,6 +65,7 @@ create_full_path_symlinks() {
         "config/git/template/hooks/post-merge"
         "config/git/template/hooks/post-rewrite"
         "config/nvim/init.vim"
+        "config/nvim/ftplugin/c.vim"
         "config/nvim/ftplugin/python.vim"
         "config/redshift.conf"
         "config/tmux/tmux.conf"
