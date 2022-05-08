@@ -248,11 +248,16 @@ nnoremap <leader>z :noh<CR>
 
 " - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+let g:neodark#background = '#202020'
+let g:neodark#solid_vertsplit = 1
+let g:neodark#italics = 1
+
 syntax enable
 colorscheme neodark
 
-let g:neodark#background = '#202020'
-let g:neodark#solid_vertsplit = 1
+" Restore Search colors in neodark. Revert changes from this commit:
+" https://github.com/KeitaNakamura/neodark.vim/commit/f0280310d5c7bfe58102e5bd831bd56feeb0b5ce
+highlight Search        cterm=NONE      ctermbg=180     ctermfg=236
 
 highlight ColorColumn   cterm=NONE      ctermbg=237     ctermfg=NONE
 highlight Comment       cterm=italic    ctermbg=NONE    ctermfg=242
