@@ -45,6 +45,17 @@ alias xt="nix-store"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Docker
+
+alias d="docker"
+alias da="docker attach"
+alias dc="docker compose"
+alias ddt="pkill -9 -f 'docker.*attach'"
+alias de="docker exec -ti"
+alias dps="docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # fzf
 
 alias ff="fzf_find_edit"
