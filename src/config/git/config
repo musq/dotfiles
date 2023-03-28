@@ -355,8 +355,11 @@
 
     # Make `git push` automatically push relevant
     # annotated tags when pushing branches out.
-
     followTags = true
+
+    # Make `git push` automatically create branch on upstream with same
+    # local name and enable tracking on this branch.
+    autoSetupRemote = true
 
 [rebase]
 
