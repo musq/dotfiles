@@ -156,7 +156,11 @@ export MANPAGER="less --tabs=4 --ignore-case --hilite-search --squeeze-blank-lin
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Prepend $HOME/bin to PATH, if not already exists
+# Prepend $HOME/.local/bin and $HOME/bin to PATH, if not already exists
+
+[[ ":$PATH:" != *":$HOME/.local/bin:"* ]] \
+    && PATH="$HOME/.local/bin:${PATH}"
+
 
 [[ ":$PATH:" != *":$HOME/bin:"* ]] \
     && PATH="$HOME/bin:${PATH}"
