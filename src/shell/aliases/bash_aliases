@@ -55,6 +55,7 @@ alias da="docker attach"
 alias dc="docker compose"
 alias ddt="pkill -9 -f 'docker.*attach'"
 alias de="docker exec -ti"
+alias dl="docker logs -fn 100"
 alias dps="docker ps --format \"table {{.ID}}\t{{.Names}}\t{{.Status}}\t{{.Ports}}\""
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
