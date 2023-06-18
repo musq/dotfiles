@@ -1,0 +1,2 @@
+brew install --cask gpg-suite meld alacritty
+brew install bash starship tmux less curl wget vim neovim exa fd fzf ripgrep tree pstree git git-delta bat icdiff ncdu prettyping mpv ctags reattach-to-user-namespace lazydocker pass pinentry-mac hadolint shellcheck
