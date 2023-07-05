@@ -313,6 +313,23 @@ gz() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+harden() {
+    local -r path="$1"
+
+    # Make all files inside rw-r--r--
+    find "$path" -type f -exec chmod 644 {} ';'
+
+    # Make all directories inside rwxr-xr-x
+    find "$path" -type d -exec chmod 755 {} ';'
+
+    if [[ -d $path ]]; then
+        # Make folder rwxr-xr-x
+        chmod 755 "$path"
+    fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Human readable file size
 # (because `du -h` doesn't cut it for me).
 
