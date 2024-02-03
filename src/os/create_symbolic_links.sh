@@ -51,7 +51,7 @@ create_full_path_symlinks() {
 
     declare -a FILES_TO_SYMLINK=(
 
-        "config/alacritty/alacritty.yml"
+        "config/alacritty/alacritty.toml"
         "config/bat.conf"
         "config/cmus/onedark-alt.theme"
         "config/cmus/rc"

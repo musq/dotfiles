@@ -1,0 +1,84 @@
+live_config_reload = true
+working_directory = "None"
+
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "0x555753"
+blue = "0x729fcf"
+cyan = "0x34e2e2"
+green = "0x8ae234"
+magenta = "0xad7fa8"
+red = "0xef2929"
+white = "0xeeeeec"
+yellow = "0xfce94f"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x5b91d8"
+cyan = "0x0aa7af"
+green = "0x4ab54a"
+magenta = "0xa072c1"
+red = "0xef6060"
+white = "0xd3d7cf"
+yellow = "0xceb044"
+
+[colors.primary]
+background = "0x292929"
+foreground = "0xbbbbbb"
+
+[cursor]
+style = "Block"
+unfocused_hollow = true
+
+[debug]
+log_level = "Warn"
+persistent_logging = false
+print_events = false
+render_timer = false
+
+[font]
+size = 17
+
+[font.bold]
+family = "Iosevka Term"
+style = "Semibold"
+
+[font.italic]
+family = "Iosevka Term"
+style = "Light Italic"
+
+[font.normal]
+family = "Iosevka Term"
+style = "Light"
+
+[font.offset]
+x = 0
+y = 4
+
+[[keyboard.bindings]]
+chars = "\u000Ei"
+key = "I"
+mods = "Control"
+
+[mouse]
+hide_when_typing = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[window]
+decorations = "full"
+dynamic_padding = false
+option_as_alt = "OnlyLeft"
+startup_mode = "Maximized"
+
+[window.class]
+general = "Alacritty"
+instance = "Alacritty"
