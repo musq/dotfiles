@@ -1,0 +1,45 @@
+# https://alacritty.org/config-alacritty.html
+
+[window]
+padding = { x = 3, y = 0 }
+startup_mode = "Maximized"
+option_as_alt = "Both"  # macOS only
+
+[font]
+size = 14
+offset = { x = 0, y = 0 }
+normal      = { family = "IosevkaTerm Nerd Font Mono", style = "Light" }
+italic      = { style = "Light Italic" }
+bold        = { style = "Bold" }
+bold_italic = { style = "Bold Italic" }
+
+[colors.primary]
+background = "#1a1a1a"
+foreground = "#b0b0b0"
+
+[colors.normal]
+black   = "#6a6a6a"
+red     = "#ef6060"
+green   = "#4ab54a"
+yellow  = "#ceb044"
+blue    = "#45a1ed"
+magenta = "#c678dd"
+cyan    = "#56b6c2"
+white   = "#dddddd"
+
+[colors.bright]
+black   = "#6a6a6a"
+red     = "#e06c75"
+green   = "#98c379"
+yellow  = "#d19a66"
+blue    = "#61afef"
+magenta = "#c678dd"
+cyan    = "#56b6c2"
+white   = "#e6efff"
+
+[mouse]
+hide_when_typing = true
+
+
+# See default key bindings
+# https://alacritty.org/config-alacritty-bindings.html

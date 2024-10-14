@@ -1,0 +1,16 @@
+# Modeline hint for vim to improve syntax highlighting of this file
+# vim: filetype=gitconfig
+
+[user]
+    # email =
+
+    # Reset/Change the signingkey
+    # signingkey =
+
+[gpg]
+    # Use 'gpg2' instead of 'gpg'
+    # program = gpg2
+
+[commit]
+    # Disable signing commits using GPG
+    # gpgsign = false

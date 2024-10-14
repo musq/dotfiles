@@ -1,0 +1,95 @@
+#!/usr/bin/env bash
+
+# Bash options
+# https://www.gnu.org/software/bash/manual/bashref.html#The-Shopt-Builtin
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set the appropriate umask
+
+umask 022
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Autocorrect typos in path names when using the `cd` command
+
+shopt -s cdspell
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Search the command in `hash` before searching it in the path
+# from scratch every single time
+
+shopt -s checkhash
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Prevent shell to exit in case of running jobs
+# A second exit attempt terminates stopped jobs
+
+shopt -s checkjobs
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Check the window size after each command and, if necessary, update
+# the values of $LINES and $COLUMNS
+
+shopt -s checkwinsize
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Save all lines of a multiple-line command in the same history entry
+
+shopt -s cmdhist
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Include filenames beginning with a "." in the filename expansion
+
+shopt -s dotglob
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Expand aliases i.e. make aliases work. This is the default behaviour
+
+shopt -s expand_aliases
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use extended pattern matching features
+
+shopt -s extglob
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use ** to match all files and zero or more directories and
+# subdirectories during pathname expansion
+
+shopt -s globstar
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append to the history file rather than overwriting it
+
+shopt -s histappend
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Bash will send SIGHUP to all jobs when an interactive login shell
+# exits
+
+shopt -s huponexit
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Do not attempt to search the PATH for possible completions when
+# completion is attempted on an empty line
+
+shopt -s no_empty_cmd_completion
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Match filenames in a case-insensitive fashion when performing
+# filename expansion
+
+shopt -s nocaseglob

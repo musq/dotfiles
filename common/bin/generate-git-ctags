@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# https://tbaggery.com/2011/08/08/effortless-ctags-with-git.html
+
+set -e
+
+# Set up trap to remove temporary tags file upon script's exit
+# regardless of normal/error exit. Here $$ is the process ID of the
+# current shell.
+trap 'rm -f "$$.tags"' EXIT
+
+# Check if we're in a git repository
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "Error: Not inside a Git repository. Please run this script inside a Git repository." >&2
+  exit 1
+fi
+
+# Navigate to the root of the git repository
+repo_root=$(git rev-parse --show-toplevel)
+cd "$repo_root"
+
+# Generate tags for all tracked files and store them on the root of repo
+git ls-files | ctags --tag-relative -L - -f "$$.tags"
+
+# Move the temporary tags file to the "tags" file in the root directory
+mv "$$.tags" "tags"
