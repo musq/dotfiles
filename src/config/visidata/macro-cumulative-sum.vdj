@@ -1,8 +1,0 @@
-#!vd -p
-{"sheet": "", "col": "", "row": "", "longname": "type-int", "input": "", "keystrokes": "#", "comment": "set type of current column to int"}
-{"sheet": "", "col": "", "row": "", "longname": "addcol-window", "input": "-1 0", "keystrokes": "w", "comment": "add column where each row contains a list of that row, nBefore rows, and nAfter rows"}
-{"sheet": "", "col": "", "row": "", "longname": "addcol-expr", "input": "sum(count_window)", "keystrokes": "=", "comment": "create new column from Python expression, with column names as variables"}
-{"sheet": "", "col": "", "row": "", "longname": "type-int", "input": "", "keystrokes": "#", "comment": "set type of current column to int"}
-{"sheet": "", "col": "", "row": "", "longname": "rename-col", "input": "count_cumulative_sum", "keystrokes": "^", "comment": "rename current column"}
-{"sheet": "", "col": "", "row": "", "longname": "go-col-regex", "input": "count_window", "keystrokes": "c", "comment": "go to next column with name matching regex"}
-{"sheet": "", "col": "", "row": "", "longname": "hide-col", "input": "", "keystrokes": "-", "comment": "Hide current column"}

@@ -1,7 +1,0 @@
-unbind -f common h
-unbind -f common l
-
-bind -f common ; seek -5
-bind -f common ' seek +5
-
-colorscheme onedark-alt
