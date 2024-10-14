@@ -1,0 +1,139 @@
+# Readline library configuration options.
+# http://ss64.com/bash/syntax-inputrc.html
+
+# This file controls the behaviour of line input editing for programs
+# that use the GNU Readline library. e.g. Bash, GDB, FTP, etc.
+#
+# You can re-read this inputrc file with <C-x><C-r>.
+#
+# For the reference see terminfo(5). Also see:
+# - showkey -a
+# - xmodmap
+# - infocmp -cL
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# First, include any system-wide bindings and variable assignments
+# from /etc/inputrc (fails silently if file doesn't exist)
+
+$include /etc/inputrc
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+set editing-mode emacs
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Cycle through autocompletion matches
+
+# TAB
+TAB: menu-complete
+# Shift-TAB
+"\e[Z": menu-complete-backward
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use UP/DOWN arrow to complete commands from history by partial match
+
+# ↑
+"\e[A": history-search-backward
+# ↓
+"\e[B": history-search-forward
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# https://www.gnu.org/software/bash/manual/html_node/Commands-For-Moving.html
+
+# Move along words that are composed of letters and digits
+# Ctrl →
+"\e[1;5C": forward-word
+# Ctrl ←
+"\e[1;5D": backward-word
+
+# Move along words that are delimited by non-quoted shell metacharacters
+# Alt →
+"\e[1;3C": vi-forward-bigword
+# Alt ←
+"\e[1;3D": vi-backward-bigword
+
+# Move along start/end of line
+# Fn →
+"\e[4~": end-of-line
+# Fn ←
+"\e[1~": beginning-of-line
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Disable beeping and window flashing
+
+set bell-style none
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Show completion options in color and highlight the search prefix
+
+set colored-stats on
+
+set colored-completion-prefix on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Use case-insensitive TAB autocompletion
+
+set completion-ignore-case on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Treat hypen and underscore as equivalent during TAB autocompletion
+
+set completion-map-case on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Be 8 bit clean
+
+set convert-meta on
+set input-meta on
+set output-meta on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Bracketed Paste Mode: Do not auto-execute commands on pasting text in
+# terminal even if it has new lines. Users must press ENTER to begin
+# execution of the pasted text/commands.
+
+# https://cirw.in/blog/bracketed-paste
+
+set enable-bracketed-paste on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append directories with a slash during TAB autocompletion
+
+set mark-directories on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Append symlinked directories with a slash during TAB autocompletion
+
+set mark-symlinked-directories on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Perform partial completion on the first TAB press, and start cycling
+# results on the second TAB press
+
+set menu-complete-display-prefix on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Show all available completion options on second TAB press
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Avoid duplicate text when completing an option mid-word
+
+set skip-completed-text on

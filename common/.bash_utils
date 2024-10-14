@@ -1,0 +1,218 @@
+#!/usr/bin/env bash
+
+# =====================================================================
+# System utils (try to keep them POSIX compliant)
+# =====================================================================
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Check if the provided command exists
+
+cmd_exists() {
+	command -v "$1" >/dev/null
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Get running OS name
+
+# Usage:
+# case "$(current_os)" in
+# linux) echo "You are using a Linux distribution" ;;
+# macos) echo "You are using macOS" ;;
+# esac
+
+current_os() {
+	if [ -f /proc/version ] && grep -iq Microsoft /proc/version; then
+		printf "wsl"
+	else
+		os_name=$(uname -s)
+		case "$os_name" in
+		Linux*) printf "linux" ;;
+		Darwin*) printf "macos" ;;
+		CYGWIN*) printf "cygwin" ;;
+		*) printf "unknown" ;;
+		esac
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Show files/directories on the provided path, sorted by size
+
+dus() {
+	du -sh "$@" | sort -hr
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Harden the provided path recursively
+
+harden() {
+	local path="$1"
+
+	# Make all files inside rw-------
+	find "$path" -type f -exec chmod 600 {} +
+
+	# Make all directories inside rwx------
+	find "$path" -type d -exec chmod 700 {} +
+
+	if [ -d "$path" ]; then
+		# Make folder rwx------
+		chmod 700 "$path"
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Set strict permissions on the provided path recursively
+
+harden_lite() {
+	local path="$1"
+
+	# Make all files inside rw-r--r--
+	find "$path" -type f -exec chmod 644 {} +
+
+	# Make all directories inside rwxr-xr-x
+	find "$path" -type d -exec chmod 755 {} +
+
+	if [ -d "$path" ]; then
+		# Make folder rwxr-xr-x
+		chmod 755 "$path"
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Create new directory and enter it
+
+mkd() {
+	if [ -n "$*" ]; then
+
+		mkdir -p "$@"
+		#      └─ Make intermediate parent directories if needed
+
+		cd "$@" || exit 1
+
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+print_info() {
+	local BLUE='\033[0;34m' # ANSI Blue
+	local NC='\033[0m'      # No Color (reset)
+
+	printf -- "${BLUE}$1${NC}\n"
+}
+
+print_success() {
+	local GREEN='\033[0;32m' # ANSI Green
+	local NC='\033[0m'       # No Color (reset)
+
+	printf -- "${GREEN}$1${NC}\n"
+}
+
+print_warning() {
+	local YELLOW='\033[0;33m' # ANSI Yellow
+	local NC='\033[0m'        # No Color (reset)
+
+	printf -- "${YELLOW}$1${NC}\n"
+}
+
+print_error() {
+	local RED='\033[0;31m' # ANSI Red
+	local NC='\033[0m'     # No Color (reset)
+
+	printf -- "${RED}$1${NC}\n"
+}
+
+# =====================================================================
+# User functions
+# =====================================================================
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Fuzzy find files, then edit selected files in your preferred editor
+
+fzf_find_edit() {
+	local IFS=$'\n' # Set IFS to newline to handle spaces in file names
+	local files=$(
+		fzf --preview='bat --color=always --style=numbers --line-range :500 {}'
+	)
+	if [ -n "$files" ]; then
+		${EDITOR:-vi} $files
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Fuzzy search in git pickaxe
+
+fzf_git_log_pickaxe() {
+	if [ $# -eq 0 ]; then
+		echo "Error: search term was not provided."
+		return 1
+	fi
+
+	local commits=$(
+		git log --pretty=custom --color=always -S "$@" |
+			fzf --ansi --no-sort --height 100% \
+				--preview "git sh --color=always {1}"
+	)
+
+	if [ -n $commits ]; then
+		local hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
+		git sh $hashes
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Fuzzy find a file, with colorful preview, that contains the supplied
+# term, then once selected edit it in your preferred editor.
+# Note, if your EDITOR is Vim or Neovim then you will be automatically
+# scrolled to the selected line.
+
+# https://github.com/junegunn/fzf/blob/master/ADVANCED.md#using-fzf-as-the-secondary-filter
+
+fzf_grep_edit() {
+	if [ $# -eq 0 ]; then
+		echo "Error: search term was not provided."
+		return 1
+	fi
+
+	if ! cmd_exists "rg"; then
+		echo "Error: 'rg' (Ripgrep) command not found. Please install it to continue."
+		return 1
+	fi
+
+	local matches=$(
+		rg --color=always --line-number --no-heading --smart-case --hidden "${*:-}" |
+			fzf --height=60% \
+				--ansi \
+				--delimiter : \
+				--color "hl:-1:underline,hl+:-1:underline:reverse" \
+				--preview-window 'up,60%,border-bottom,+{2}+3/3,~3' \
+				--preview "bat --color=always --highlight-line {2} {1}"
+	)
+
+	# Process the matches into a command for the editor
+	# https://stackoverflow.com/a/28101809
+	# An example value of $files:
+	# `:e file1.txt|:3| :e file2.txt|:2| :e file3.txt|:2| `
+	local files=$(echo "$matches" |
+		cut -d':' -f1,2 |
+		sed 's/:/|:/' |
+		sed 's/^/:e /' |
+		sed 's/$/| /')
+
+	# NOTE: We are conciously checking if $matches is empty (instead of
+	# $files) because $files is non-empty even when $matches is empty.
+	# $files='| ' in such a case.
+	if [ -n "$matches" ]; then
+		# Open matching files at their matching lines, and highlight the
+		# search term
+		${EDITOR:-vi} -c "$files" +/"$1"
+	fi
+}
