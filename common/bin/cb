@@ -65,9 +65,9 @@ requested_test_suite() {
 enable_tee_like_chaining() {
 	# see `man tee`
 	if stdout_is_pipe_like; then
-		${os}_paste
+		"${os}_paste"
 	elif requested_open_ended; then
-		${os}_paste
+		"${os}_paste"
 		echo
 	fi
 }
@@ -121,10 +121,10 @@ function debug() {
 main() {
 	os="$(detect_os)"
 	if stdin_is_pipe_like; then
-		${os}_copy
+		"${os}_copy"
 		enable_tee_like_chaining
 	else # stdin is not pipe-like
-		${os}_paste
+		"${os}_paste"
 		prevent_prompt_from_being_on_the_same_line
 	fi
 }

@@ -15,29 +15,30 @@ esac
 # NOTE: File sourcing order is critical here
 
 # First define functions to be used as utils
-. ~/.bash_utils
+. "$HOME/.bash_utils"
 
 # Then source custom scripts
-for script in "$HOME/.profile.d/*.sh"; do
-	if [ -r $script ]; then
-		. $script
+for script in "$HOME/.profile.d"/*.sh; do
+	if [ -r "$script" ]; then
+		# shellcheck disable=SC1090
+		. "$script"
 	fi
 done
 unset script
 
 # Then override any custom script settings with our version controlled
 # settings
-. ~/.bash_exports # Set environment variables
-. ~/.bash_options # Set runtime options for the interactive shell
-. ~/.bash_aliases # Set aliases to be used by user
-. ~/.bash_colors  # Set colors
+. "$HOME/.bash_exports" # Set environment variables
+. "$HOME/.bash_options" # Set runtime options for the interactive shell
+. "$HOME/.bash_aliases" # Set aliases to be used by user
+. "$HOME/.bash_colors"  # Set colors
 
 # Then bootstrap some tools
-. ~/.bash_tools
+. "$HOME/.bash_tools"
 
 # Finally override any previous settings with our ad-hoc local settings
 # NOTE: bash.local is not version controlled
-. ~/.bash.local
+. "$HOME/.bash.local"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

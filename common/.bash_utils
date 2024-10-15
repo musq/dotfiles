@@ -103,28 +103,28 @@ print_info() {
 	local BLUE='\033[0;34m' # ANSI Blue
 	local NC='\033[0m'      # No Color (reset)
 
-	printf -- "${BLUE}$1${NC}\n"
+	printf -- "%b%b%b\n" "${BLUE}" "$1" "${NC}"
 }
 
 print_success() {
 	local GREEN='\033[0;32m' # ANSI Green
 	local NC='\033[0m'       # No Color (reset)
 
-	printf -- "${GREEN}$1${NC}\n"
+	printf -- "%b%b%b\n" "${GREEN}" "$1" "${NC}"
 }
 
 print_warning() {
 	local YELLOW='\033[0;33m' # ANSI Yellow
 	local NC='\033[0m'        # No Color (reset)
 
-	printf -- "${YELLOW}$1${NC}\n"
+	printf -- "%b%b%b\n" "${YELLOW}" "$1" "${NC}"
 }
 
 print_error() {
 	local RED='\033[0;31m' # ANSI Red
 	local NC='\033[0m'     # No Color (reset)
 
-	printf -- "${RED}$1${NC}\n"
+	printf -- "%b%b%b\n" "${RED}" "$1" "${NC}"
 }
 
 # =====================================================================
@@ -137,11 +137,12 @@ print_error() {
 
 fzf_find_edit() {
 	local IFS=$'\n' # Set IFS to newline to handle spaces in file names
-	local files=$(
+	local files
+	files=$(
 		fzf --preview='bat --color=always --style=numbers --line-range :500 {}'
 	)
 	if [ -n "$files" ]; then
-		${EDITOR:-vi} $files
+		${EDITOR:-vi} "$files"
 	fi
 }
 
@@ -155,15 +156,17 @@ fzf_git_log_pickaxe() {
 		return 1
 	fi
 
-	local commits=$(
+	local commits
+	commits=$(
 		git log --pretty=custom --color=always -S "$@" |
 			fzf --ansi --no-sort --height 100% \
 				--preview "git sh --color=always {1}"
 	)
 
-	if [ -n $commits ]; then
-		local hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-		git sh $hashes
+	if [ -n "$commits" ]; then
+		local hashes
+		hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
+		git sh "$hashes"
 	fi
 }
 
@@ -187,7 +190,8 @@ fzf_grep_edit() {
 		return 1
 	fi
 
-	local matches=$(
+	local matches
+	matches=$(
 		rg --color=always --line-number --no-heading --smart-case --hidden "${*:-}" |
 			fzf --height=60% \
 				--ansi \
@@ -201,7 +205,8 @@ fzf_grep_edit() {
 	# https://stackoverflow.com/a/28101809
 	# An example value of $files:
 	# `:e file1.txt|:3| :e file2.txt|:2| :e file3.txt|:2| `
-	local files=$(echo "$matches" |
+	local files
+	files=$(echo "$matches" |
 		cut -d':' -f1,2 |
 		sed 's/:/|:/' |
 		sed 's/^/:e /' |

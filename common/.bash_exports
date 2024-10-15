@@ -55,14 +55,14 @@ export LC_ALL="en_US.UTF-8"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Use custom 'less' colors for man pages
+# Use custom colors for man pages
 
-export LESS_TERMCAP_md=$(printf "\e[1;31m")
-export LESS_TERMCAP_me=$(printf "\e[0m")
-export LESS_TERMCAP_se=$(printf "\e[0m")
-export LESS_TERMCAP_so=$(printf "\e[1;40;92m")
-export LESS_TERMCAP_ue=$(printf "\e[0m")
-export LESS_TERMCAP_us=$(printf "\e[1;32m")
+LESS_TERMCAP_md=$(printf "\e[1;31m") && export LESS_TERMCAP_md
+LESS_TERMCAP_me=$(printf "\e[0m") && export LESS_TERMCAP_me
+LESS_TERMCAP_se=$(printf "\e[0m") && export LESS_TERMCAP_se
+LESS_TERMCAP_so=$(printf "\e[1;40;92m") && export LESS_TERMCAP_so
+LESS_TERMCAP_ue=$(printf "\e[0m") && export LESS_TERMCAP_ue
+LESS_TERMCAP_us=$(printf "\e[1;32m") && export LESS_TERMCAP_us
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
