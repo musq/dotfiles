@@ -38,5 +38,6 @@ eval "$(fzf --bash)"
 eval "$(starship init bash)"
 
 # Set up forgit
-[ -f $HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh ] &&
-	. $HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh
+# shellcheck disable=SC1091
+[ -f "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh" ] &&
+	. "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh"

@@ -16,11 +16,11 @@ alias cd..="cd .."
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 alias aliases="alias | cut -c7- | bat -l ini --style=plain"
-alias c="clear"
-alias cc="printf '\33c\e[3J'"
+alias c="clear -x"            # Soft clear screen (keep scrollback)
+alias cc="printf '\33c\e[3J'" # Hard clear screen (delete scrollback)
 
 alias b="bat"
-alias dfh="df -h $HOME"
+alias dfh='df -h $HOME'
 
 alias g="git"
 alias gs="git s"
@@ -95,7 +95,7 @@ alias gpx="fzf_git_log_pickaxe"
 
 # GPG
 
-alias gpg="gpg --options $HOME/.gnupg/gpg.conf"
+alias gpg='gpg --options $HOME/.gnupg/gpg.conf'
 
 # Forget keys in gpg-agent
 alias gafk="gpg-connect-agent reloadagent /bye"
@@ -139,7 +139,7 @@ linux)
 
 	# Enable color support
 	if [ -x /usr/bin/dircolors ]; then
-		test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+		test -r ~/.dircolors && (eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)")
 
 		alias ls='ls --color=auto'
 		alias dir='dir --color=auto'

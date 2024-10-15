@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export GPG_TTY=$(tty)
+GPG_TTY=$(tty) && export GPG_TTY
 
 unset SSH_AGENT_PID
 
@@ -12,10 +12,10 @@ unset SSH_AGENT_PID
 # It indicates that the current system is a desktop and not a server
 
 if [ -e "$HOME/.gnupg/sshcontrol" ] &&
-	egrep -q "^[ ]*[0-9A-Z]{40}" "$HOME/.gnupg/sshcontrol" &&
+	grep -E -q "^[ ]*[0-9A-Z]{40}" "$HOME/.gnupg/sshcontrol" &&
 	[ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
 
-	export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+	SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)" && export SSH_AUTH_SOCK
 fi
 
 gpg-connect-agent updatestartuptty /bye >/dev/null

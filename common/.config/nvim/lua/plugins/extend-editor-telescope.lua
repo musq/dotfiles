@@ -31,6 +31,19 @@ return {
       layout_config = { prompt_position = "top" },
       sorting_strategy = "ascending",
       winblend = 0,
+
+      -- Search within hidden files as well
+      vimgrep_arguments = {
+        "rg",
+        "--color=never",
+        "--no-heading",
+        "--with-filename",
+        "--line-number",
+        "--column",
+        "--smart-case",
+        "--hidden",
+      },
+
       mappings = {
         i = {
           -- Close Telescope window by pressing ESC even when in Insert mode
