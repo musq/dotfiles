@@ -56,6 +56,7 @@ alias m="man"
 alias p='python3'
 alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias pc="pass-clip"
+alias pf="passfzf"
 alias please='sudo !!'
 alias pping='prettyping --nolegend'
 alias rg="rg --smart-case --colors 'line:fg:220,100,0' --colors 'match:bg:yellow' --colors 'match:fg:0,0,0' --colors 'match:style:nobold' --colors 'path:fg:0,180,180' --colors 'path:style:underline'"
