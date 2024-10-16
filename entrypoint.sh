@@ -132,8 +132,13 @@ print_success "=================================================================
 # Manually install named tools using OS' native software manager
 
 if ! cmd_exists "alacritty"; then
-	print_warning "Install Alacritty using native OS software manager"
+	print_warning "- Install Alacritty using native OS software manager"
 fi
+
 if ! cmd_exists "subl"; then
-	print_warning "Install Sublime Text using native OS software manager"
+	print_warning "- Install Sublime Text using native OS software manager"
+fi
+
+if ! [ -d "$HOME/.password-store" ]; then
+	print_warning "- Initialize pass repo in ~/.password-store"
 fi

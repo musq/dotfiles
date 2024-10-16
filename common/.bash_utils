@@ -38,6 +38,15 @@ current_os() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Die with reason
+
+die() {
+	test -n "$*" && echo "$*" 1>&2
+	exit 1
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Show files/directories on the provided path, sorted by size
 
 dus() {
