@@ -64,7 +64,7 @@ print_success "\n===============================================================
 print_success "> Symlink config files using GNU stow"
 print_success "========================================================================\n"
 
-stow common
+stow --restow common
 
 # Print instruction for user to backup and remove conflicting GNU stow files
 if [ $? -ne 0 ]; then
@@ -78,13 +78,13 @@ linux)
 	print_success "\n========================================================================"
 	print_success "> Symlink Linux config files using GNU stow"
 	print_success "========================================================================\n"
-	stow linux
+	stow --restow linux
 	;;
 macos)
 	print_success "\n========================================================================"
 	print_success "> Symlink MacOS config files using GNU stow"
 	print_success "========================================================================\n"
-	stow macos
+	stow --restow macos
 	;;
 esac
 
