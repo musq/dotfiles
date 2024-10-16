@@ -51,6 +51,9 @@ print_success "=================================================================
 
 mkdir -p "$HOME/.config/git"
 mkdir -p "$HOME/.gnupg"
+mkdir -p "$HOME/.local/state/vim/backups"
+mkdir -p "$HOME/.local/state/vim/swaps"
+mkdir -p "$HOME/.local/state/vim/undos"
 mkdir -p "$HOME/.profile.d"
 mkdir -p "$HOME/.ssh/sockets"
 mkdir -p "$HOME/bin"

@@ -64,8 +64,8 @@ alias rmf="rm -rf"
 
 # Neovim
 alias v="nvim"
-alias vi="vi -u ~/.config/vim/vimrc"
-alias vim="vim -u ~/.config/vim/vimrc"
+alias vi="vi -u ~/.config/.vimrc"
+alias vim="vim -u ~/.config/.vimrc"
 # Keep a separate instance of lazyvim handy as 'vv'
 # This would be helpful when the main nvim installation starts breaking
 alias vv="NVIM_APPNAME=lazyvim nvim"
