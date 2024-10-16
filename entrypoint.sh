@@ -52,6 +52,7 @@ print_success "=================================================================
 mkdir -p "$HOME/.config/git"
 mkdir -p "$HOME/.gnupg"
 mkdir -p "$HOME/.profile.d"
+mkdir -p "$HOME/.ssh/sockets"
 mkdir -p "$HOME/bin"
 mkdir -p "$HOME/src"
 
@@ -108,6 +109,10 @@ fi
 
 if [ ! -e "$HOME/.config/git/config.local" ]; then
 	cp "local/.gitconfig.local" "$HOME/.config/git/config.local"
+fi
+
+if [ ! -e "$HOME/.ssh/config.local" ]; then
+	cp "local/ssh_config.local" "$HOME/.ssh/config.local"
 fi
 
 # =====================================================================

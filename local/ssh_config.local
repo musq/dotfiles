@@ -1,0 +1,6 @@
+# Modeline hint for vim to improve syntax highlighting of this file
+# vim: syntax=sshconfig
+
+# NOTE: Unless noted otherwise, for each parameter, the first obtained
+# value will be used. Hence, more host-specific declarations should be
+# given near the beginning of the file, and general defaults at the end
