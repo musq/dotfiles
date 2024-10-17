@@ -89,6 +89,7 @@ alias dr="docker restart"
 
 alias ff="fzf_find_edit"
 alias ffg="fzf_grep_edit"
+alias fr="fzf_find_recent_and_edit"
 
 alias gpx="fzf_git_log_pickaxe"
 

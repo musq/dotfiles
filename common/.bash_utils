@@ -157,6 +157,26 @@ fzf_find_edit() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Fuzzy find recently opened files, then edit selected files
+
+fzf_find_recent_and_edit() {
+	local IFS=$'\n' # Set IFS to newline to handle spaces in file names
+	local files
+	files=$(
+		# Print list of recently opened files to stdout
+		nvim --headless -c "lua for _,v in ipairs(vim.v.oldfiles) do print(v) end" +qa 2>/dev/stdout |
+			tr -d '\r' |        # Remove extra <CR> from each file path end
+			awk '!seen[$0]++' | # Remove duplicates while preserving order
+			fzf --preview='bat --color=always --style=numbers --line-range :500 {}'
+	)
+	if [ -n "$files" ]; then
+		# shellcheck disable=SC2086
+		${EDITOR:-vi} $files
+	fi
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Fuzzy search in git pickaxe
 
 fzf_git_log_pickaxe() {
