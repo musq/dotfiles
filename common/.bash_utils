@@ -151,7 +151,8 @@ fzf_find_edit() {
 		fzf --preview='bat --color=always --style=numbers --line-range :500 {}'
 	)
 	if [ -n "$files" ]; then
-		${EDITOR:-vi} "$files"
+		# shellcheck disable=SC2086
+		${EDITOR:-vi} $files
 	fi
 }
 
@@ -195,7 +196,8 @@ fzf_git_log_pickaxe() {
 	if [ -n "$commits" ]; then
 		local hashes
 		hashes=$(printf "%s" "$commits" | cut -d' ' -f1 | tr '\n' ' ')
-		git sh "$hashes"
+		# shellcheck disable=SC2086
+		git sh $hashes
 	fi
 }
 
