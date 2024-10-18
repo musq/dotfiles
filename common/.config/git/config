@@ -87,8 +87,8 @@
     # Web
     web  = instaweb --httpd=webrick         # Start web-based visualizer
 
-    # Ctags
-    ctags = ! generate-git-ctags
+    # Tags
+    tags = ! generate-project-tags
 
     # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
