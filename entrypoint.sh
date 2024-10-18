@@ -51,6 +51,7 @@ print_success "=================================================================
 
 mkdir -p "$HOME/.config/git"
 mkdir -p "$HOME/.gnupg"
+mkdir -p "$HOME/.local/state/gnupg"
 mkdir -p "$HOME/.local/state/vim/backups"
 mkdir -p "$HOME/.local/state/vim/swaps"
 mkdir -p "$HOME/.local/state/vim/undos"
@@ -127,6 +128,7 @@ print_success "> Harden necessary locations"
 print_success "========================================================================\n"
 
 harden "$HOME/.gnupg"
+harden "$HOME/.local/state/gnupg"
 harden "$HOME/.ssh"
 
 # =====================================================================
