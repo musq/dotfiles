@@ -6,23 +6,25 @@
 
 case "$(current_os)" in
 linux)
-	# Enable bash completion in interactive shells
-	if ! shopt -oq posix; then
-		if [ -f /usr/share/bash-completion/bash_completion ]; then
-			. /usr/share/bash-completion/bash_completion
-		elif [ -f /etc/bash_completion ]; then
-			. /etc/bash_completion
-		fi
-	fi
-
 	# Set up homebrew
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+	;;
+macos)
+	# Set up homebrew
+	eval "$(/opt/homebrew/bin/brew shellenv)"
 	;;
 esac
 
 # =====================================================================
 # Common
 # =====================================================================
+
+# Enable bash completion in interactive shells
+if ! shopt -oq posix; then
+	if [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
+		. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+	fi
+fi
 
 # Set up lesspipe to read non-text files with less (e.g. pdf, tar.xz,
 # etc.)

@@ -11,6 +11,8 @@
 # Common
 # =====================================================================
 
+brew "bash"
+brew "bash-completion@2"
 brew "bat"
 brew "eza"
 brew "fd"
