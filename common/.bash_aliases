@@ -99,10 +99,12 @@ alias gpx="fzf_git_log_pickaxe"
 
 alias gpg='gpg --options $HOME/.gnupg/gpg.conf'
 
-# Forget keys in gpg-agent
+# Reload gpg-agent. This operation also helps forget keys in gpg-agent
 alias gafk="gpg-connect-agent reloadagent /bye"
 # List keys in gpg-agent
 alias galk="gpg-connect-agent 'keyinfo --list' /bye"
+# Kill any running gpg-agent that might be hung
+alias gaka="gpgconf --kill gpg-agent"
 # Reset tty in a tmux window
 alias gat="gpg-connect-agent updatestartuptty /bye"
 
