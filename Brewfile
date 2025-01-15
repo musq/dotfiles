@@ -56,9 +56,9 @@ brew "xclip" if OS.linux?
 
 cask "gpg-suite" if OS.mac?
 
-# TODO: pinentry-mac is now in a publicly archived state in upstream
-# repo, so maybe don't use it now. Check if brew "pinentry" installs
-# pinentry-mac or not.
+# WARNING: pinentry-mac is now in a publicly archived state in upstream
+# repo, so maybe it could break in the future. If it breaks in the
+# future, then check if brew "pinentry" installs pinentry-mac or not.
 # https://github.com/GPGTools/pinentry-mac
 brew "pinentry-mac" if OS.mac?
 
