@@ -19,12 +19,10 @@ esac
 # Common
 # =====================================================================
 
-# Enable bash completion in interactive shells
-if ! shopt -oq posix; then
-	if [ -r "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ]; then
-		. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
-	fi
-fi
+# Set up bash completion
+# shellcheck disable=SC1091
+[ -f "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ] &&
+	. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
 # Set up lesspipe to read non-text files with less (e.g. pdf, tar.xz,
 # etc.)
