@@ -70,6 +70,8 @@ alias vim="vim -u ~/.config/.vimrc"
 # This would be helpful when the main nvim installation starts breaking
 alias vv="NVIM_APPNAME=lazyvim nvim"
 
+alias ytfzf='invidious_instance="https://vid.puffyan.us" ytfzf'
+
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # Docker
