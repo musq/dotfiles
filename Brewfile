@@ -41,9 +41,8 @@ brew "zoxide"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Visidata fails to install during compilation
-# tap "saulpw/vd"
-# brew "saulpw/vd/visidata"
+tap "saulpw/vd"
+brew "saulpw/vd/visidata"
 
 # =====================================================================
 # Linux
