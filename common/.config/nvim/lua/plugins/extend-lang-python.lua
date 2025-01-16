@@ -2,7 +2,7 @@ return {
   -- Ensure Python tools are installed
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "black", "isort", "flake8", "mypy", "ruff", "basedpyright" } },
+    opts = { ensure_installed = { "black", "isort", "flake8", "mypy", "ruff" } },
   },
 
   -- https://github.com/mfussenegger/nvim-lint#usage
@@ -22,8 +22,8 @@ return {
     opts = {
       formatters_by_ft = {
         -- Conform will run multiple formatters sequentially
-        python = { "isort", "black" },
-        -- python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
+        -- python = { "isort", "black" },
+        python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
       },
     },
   },

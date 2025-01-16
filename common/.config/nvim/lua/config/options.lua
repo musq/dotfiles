@@ -13,4 +13,4 @@ vim.g.snacks_animate = false
 
 -- https://www.lazyvim.org/extras/lang/python
 -- Use basedpyright as Python LSP server instead of pyright.
-vim.g.lazyvim_python_lsp = "basedpyright"
+-- vim.g.lazyvim_python_lsp = "basedpyright"
