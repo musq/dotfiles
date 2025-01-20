@@ -127,6 +127,7 @@ print_success "\n===============================================================
 print_success "> Harden necessary locations"
 print_success "========================================================================\n"
 
+harden "$HOME/.bash.local"
 harden "$HOME/.gnupg"
 harden "$HOME/.local/state/gnupg"
 harden "$HOME/.ssh"
