@@ -41,6 +41,11 @@ print_success "=================================================================
 
 brew bundle --no-lock --file ./Brewfile
 
+# TODO: Figure out a way to install pipx packages declaratively like Brewfile.
+# Maybe pipx install-all pipx.json could work?
+pipx install poetry 1>/dev/null
+pipx inject poetry poetry-plugin-shell 1>/dev/null
+
 # =====================================================================
 # Create necessary directories
 # =====================================================================
