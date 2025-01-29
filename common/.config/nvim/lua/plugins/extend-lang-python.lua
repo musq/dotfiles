@@ -10,8 +10,9 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        python = { "flake8", "mypy" },
+        -- python = { "flake8", "mypy" },
         -- python = { "ruff", "mypy" },
+        python = { "mypy" },
       },
     },
   },
