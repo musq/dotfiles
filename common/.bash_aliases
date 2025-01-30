@@ -154,6 +154,9 @@ linux)
 		alias fgrep='fgrep --color=auto'
 		alias egrep='egrep --color=auto'
 	fi
+
+	# Open from terminal
+	alias o="xdg-open"
 	;;
 
 macos)
@@ -173,5 +176,8 @@ macos)
 
 	# Enable color support
 	alias ls="ls -G"
+
+	# Open from terminal
+	alias o="open"
 	;;
 esac
