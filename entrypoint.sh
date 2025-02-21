@@ -158,3 +158,19 @@ fi
 if ! [ -d "$HOME/.password-store" ]; then
 	print_warning "- Initialize pass repo in ~/.password-store"
 fi
+
+# =====================================================================
+# Perform sanity checks
+# =====================================================================
+
+print_success "\n========================================================================"
+print_success "> Perform sanity checks"
+print_success "========================================================================\n"
+
+if [ -f "$HOME/.bash_profile" ] || [ -f "$HOME/.bash_login" ]; then
+	[ -f "$HOME/.bash_profile" ] && print_error "ERROR: ~/.bash_profile file found!"
+	[ -f "$HOME/.bash_login" ] && print_error "ERROR: ~/.bash_login file found!"
+
+	print_error "> You must remove this file to ensure the correct Bash startup sequence"
+	print_error "> Read more details in common/.profile file\n"
+fi
