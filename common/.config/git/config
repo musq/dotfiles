@@ -350,8 +350,7 @@
 
 [mergetool "diffconflicts"]
 
-    # TODO: Fix this command so treesitter is able to highlight below
-    cmd = nvim -c DiffConflicts \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+    cmd = nvim -c DiffConflicts "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
     trustExitCode = true
 
 [pretty]
