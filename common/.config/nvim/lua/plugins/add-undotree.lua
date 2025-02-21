@@ -1,3 +1,5 @@
+-- The undo history visualizer for neovim
+
 return {
   "jiaoshijie/undotree",
   dependencies = "nvim-lua/plenary.nvim",

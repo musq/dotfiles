@@ -1,3 +1,5 @@
+-- LLM integration plugin for neovim
+
 return {
   "frankroeder/parrot.nvim",
   dependencies = {

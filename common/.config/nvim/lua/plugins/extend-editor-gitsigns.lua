@@ -1,4 +1,6 @@
--- https://github.com/lewis6991/gitsigns.nvim#keymaps
+-- Git integration for buffers
+-- https://www.lazyvim.org/plugins/editor#gitsignsnvim
+-- https://github.com/lewis6991/gitsigns.nvim#-keymaps
 local gitsigns = require("gitsigns")
 
 return {
@@ -29,18 +31,16 @@ return {
     },
     { "<leader>hR", gitsigns.reset_buffer, desc = "Reset Buffer" },
 
-    { "<leader>hs", gitsigns.stage_hunk, desc = "Stage Hunk" },
+    { "<leader>hh", gitsigns.stage_hunk, desc = "Toggle Stage Hunk" },
     {
-      "<leader>hs",
+      "<leader>hh",
       function()
         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end,
-      desc = "Stage Hunk",
+      desc = "Toggle Stage Hunk",
       mode = { "v" },
     },
     { "<leader>hS", gitsigns.stage_buffer, desc = "Stage Buffer" },
-
-    { "<leader>hu", gitsigns.undo_stage_hunk, desc = "Undo Stage Hunk", mode = { "n", "v" } },
 
     { "<leader>uB", gitsigns.toggle_current_line_blame, desc = "Toggle Current Line Blame" },
   },

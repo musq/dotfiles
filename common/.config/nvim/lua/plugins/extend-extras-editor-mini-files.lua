@@ -1,3 +1,6 @@
+-- Navigate and manipulate file system
+-- https://www.lazyvim.org/extras/editor/mini-files
+
 return {
   "echasnovski/mini.files",
   keys = {

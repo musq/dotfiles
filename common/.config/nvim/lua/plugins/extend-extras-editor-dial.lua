@@ -1,3 +1,6 @@
+-- Enhanced increment/decrement plugin for Neovim
+-- https://www.lazyvim.org/extras/editor/dial
+
 return {
   "monaqa/dial.nvim",
   keys = {

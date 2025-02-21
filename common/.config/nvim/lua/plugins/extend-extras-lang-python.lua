@@ -1,3 +1,5 @@
+-- https://www.lazyvim.org/extras/lang/python
+
 return {
   -- Ensure Python tools are installed
   {
