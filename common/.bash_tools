@@ -28,16 +28,26 @@ esac
 # etc.)
 eval "$(lesspipe.sh)"
 
-# Set up zoxide key bindings and completion
-eval "$(zoxide init bash)"
-
 # Set up fzf key bindings and fuzzy completion
 eval "$(fzf --bash)"
-
-# Set up starship prompt
-eval "$(starship init bash)"
 
 # Set up forgit
 # shellcheck disable=SC1091
 [ -f "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh" ] &&
 	. "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh"
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+# Tools that update $PROMPT_COMMAND
+
+# Set up starship prompt
+# WARNING: starship overwrites $PROMPT_COMMAND, so ensure it is the first
+# command here among commands that update $PROMPT_COMMAND
+eval "$(starship init bash)"
+
+# Set up zoxide key bindings and completion
+eval "$(zoxide init bash)"
+
+# Make new shells get the history lines from all previous
+# shells instead of the default "last window closed" history
+export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"

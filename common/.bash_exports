@@ -86,13 +86,6 @@ export PATH
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# Make new shells get the history lines from all previous
-# shells instead of the default "last window closed" history
-
-export PROMPT_COMMAND="history -a;"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 # Set XDG paths
 # https://specifications.freedesktop.org/basedir-spec/latest/#variables
 
