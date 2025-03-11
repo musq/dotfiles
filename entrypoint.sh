@@ -56,7 +56,7 @@ print_success "\n===============================================================
 print_success "> Install programs/tools using Homebrew"
 print_success "========================================================================\n"
 
-brew bundle --no-lock --file ./Brewfile
+brew bundle --file ./Brewfile
 
 # TODO: Figure out a way to install pipx packages declaratively like Brewfile.
 # Maybe pipx install-all pipx.json could work?
