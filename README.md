@@ -6,7 +6,7 @@ Tools used:
 
 - GNU Stow
 - Homebrew
-- Posix Shell
+- Bash
 
 ## Setup
 
@@ -35,7 +35,7 @@ git clone https://github.com/musq/dotfiles.git ~/dotfiles
 cd ~/dotfiles
 
 # Switch to origin/macos branch if your device is running MacOS
-# git checkout macos
+# git switch macos
 
 # Run dotfiles setup script
 ./entrypoint.sh
@@ -52,7 +52,12 @@ cd ~/dotfiles
 - Add keys in GnuPG
   - Fetch Ashish's public keys: `curl -L tug.ro/key | gpg --import`
   - Save Ashish's private keys into ~/.gnupg/private-keys-v1.d/, from you know where :)
-- Setup Pass: `git clone git@git.sr.ht:~musq/... ~/.password-store`
+- Setup Pass: `git clone https://git.sr.ht/~musq/... ~/.password-store`
+- Keyboard: Make <kbd>CapsLock</kbd> behave as <kbd>Control</kbd> key
+- Keyboard: Set appropriate key repeat rate and key delay until repeat rate
+- Touchpad: Set appropriate tracking speed
+- Menu Bar: Show battery percentage in Menu Bar
+- Menu Bar: Show seconds in time in Menu Bar
 
 ### Linux Mint
 
