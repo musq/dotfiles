@@ -4,7 +4,7 @@ return {
   -- Ensure PHP tools are installed
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "phpactor", "phpcs", "php-cs-fixer" } },
+    opts = { ensure_installed = { "phpactor", "phpcs", "php-cs-fixer", "prettier" } },
   },
 
   -- https://github.com/mfussenegger/nvim-lint#usage
@@ -12,7 +12,8 @@ return {
     "mfussenegger/nvim-lint",
     opts = {
       linters_by_ft = {
-        php = { "phpcs" },
+        -- php = { "phpcs" },
+        php = {},
       },
     },
   },
@@ -23,7 +24,9 @@ return {
     opts = {
       formatters_by_ft = {
         -- Conform will run multiple formatters sequentially
-        php = { "php_cs_fixer" },
+        -- php = { "prettier", "pint", "php_cs_fixer" },
+        php = { "prettier", "pint" },
+        blade = { "prettier" },
       },
     },
   },
