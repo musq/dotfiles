@@ -40,6 +40,17 @@ white   = "#e6efff"
 [mouse]
 hide_when_typing = true
 
-
-# See default key bindings
+[keyboard]
+# See default keyboard bindings
 # https://alacritty.org/config-alacritty-bindings.html
+bindings = [
+  # <Ctrl-I> and <Tab> emit the same ASCII code, so Neovim opens buffer list on
+  # pressing <Ctrl-I> because we have mapped <Tab> to open buffer list. However
+  # we want to move forward in the Neovim jumplist upon pressing <Ctrl-I> which
+  # is the default behavior of Neovim. So here we instruct alacritty to send a
+  # custom escape sequence on pressing <Ctrl-I>. We then catch this custom
+  # escape sequence in Neovim, and use it to simulate pressing <Ctrl-I> inside
+  # Neovim. This makes Neovim move forward in the jumplist.
+  # https://vi.stackexchange.com/a/25015
+  { key = "I", mods = "Control", chars = "\u000e\u0069" },
+]
