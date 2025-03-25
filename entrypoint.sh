@@ -142,6 +142,21 @@ if [ ! -e "$HOME/.ssh/config.local" ]; then
 fi
 
 # =====================================================================
+# Install custom tools
+# =====================================================================
+
+print_success "\n========================================================================"
+print_success "> Install custom tools"
+print_success "========================================================================\n"
+
+# yt-x: Browse youtube from your terminal
+if [ ! -e "$HOME/bin/yt-x" ]; then
+	curl -sL "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x" -o "$HOME/bin/yt-x"
+fi
+chmod +x "$HOME/bin/yt-x"
+print_info "• yt-x"
+
+# =====================================================================
 # Harden necessary locations
 # =====================================================================
 
