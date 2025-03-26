@@ -11,6 +11,7 @@ Tools used:
 ## Setup
 
 - Install Homebrew
+
   - Run installation script from <https://brew.sh>
   - Follow the output in terminal carefully when running the above installation script
 
@@ -34,8 +35,9 @@ git clone https://github.com/musq/dotfiles.git ~/dotfiles
 # Go inside dotfiles directory
 cd ~/dotfiles
 
-# Switch to origin/macos branch if your device is running MacOS
-# git switch macos
+# Switch to origin/linux branch if your device is running Linux
+# origin/main branch is for MacOS
+# git switch linux
 
 # Run dotfiles setup script
 ./entrypoint.sh
@@ -59,6 +61,13 @@ cd ~/dotfiles
 - Menu Bar: Show battery percentage in Menu Bar
 - Menu Bar: Show seconds in time in Menu Bar
 
+### MacOS
+
+- Change Login Shell from Zsh to Bash
+  - Open `Users & Groups`
+  - Right click on your account and click `Advanced Options`
+  - Change `Login Shell` to `/opt/homebrew/bin/bash`
+
 ### Linux Mint
 
 Install these tools using Linux Mint Software manager:
@@ -69,14 +78,7 @@ Install these tools using Linux Mint Software manager:
 - Brave
 - Sublime Text
 
-*NOTE: Follow this guide to setup Linux Mint with Btrfs: <https://github.com/orgs/linuxmint/discussions/549>*
-
-### MacOS
-
-- Change Login Shell from Zsh to Bash
-  - Open `Users & Groups`
-  - Right click on your account and click `Advanced Options`
-  - Change `Login Shell` to `/opt/homebrew/bin/bash`
+_NOTE: Follow this guide to setup Linux Mint with Btrfs: <https://github.com/orgs/linuxmint/discussions/549>_
 
 ## License
 
