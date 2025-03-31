@@ -6,11 +6,11 @@
 
 case "$(current_os)" in
 linux)
-	# Set up homebrew
+	# Export homebrew env variables (e.g. HOMEBREW_PREFIX)
 	eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 	;;
 macos)
-	# Set up homebrew
+	# Export homebrew env variables (e.g. HOMEBREW_PREFIX)
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 	;;
 esac
@@ -21,11 +21,9 @@ esac
 
 # Set up bash completion
 # shellcheck disable=SC1091
-[ -f "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh" ] &&
-	. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
+. "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
-# Set up lesspipe to read non-text files with less (e.g. pdf, tar.xz,
-# etc.)
+# Set up lesspipe to read non-text files with less (e.g. pdf, tar.xz, etc.)
 eval "$(lesspipe.sh)"
 
 # Set up fzf key bindings and fuzzy completion
@@ -33,8 +31,7 @@ eval "$(fzf --bash)"
 
 # Set up forgit
 # shellcheck disable=SC1091
-[ -f "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh" ] &&
-	. "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh"
+. "$HOMEBREW_PREFIX/share/forgit/forgit.plugin.sh"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -48,6 +45,6 @@ eval "$(starship init bash)"
 # Set up zoxide key bindings and completion
 eval "$(zoxide init bash)"
 
-# Make new shells get the history lines from all previous
-# shells instead of the default "last window closed" history
+# Make new shells get the history lines from all previous shells instead
+# of the default "last window closed" history
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
