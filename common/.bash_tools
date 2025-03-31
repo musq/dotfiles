@@ -23,6 +23,9 @@ esac
 # shellcheck disable=SC1091
 . "$HOMEBREW_PREFIX/etc/profile.d/bash_completion.sh"
 
+# Use the same completion as for 'git' also for the 'g' command
+__git_complete g git
+
 # Set up lesspipe to read non-text files with less (e.g. pdf, tar.xz, etc.)
 eval "$(lesspipe.sh)"
 
