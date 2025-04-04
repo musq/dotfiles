@@ -82,6 +82,12 @@ mkdir -p "$HOME/.ssh/sockets"
 mkdir -p "$HOME/bin"
 mkdir -p "$HOME/src"
 
+case "$(current_os)" in
+macos)
+	mkdir -p "$HOME/Library/LaunchAgents"
+	;;
+esac
+
 # =====================================================================
 # Symlink config files using GNU stow
 # =====================================================================
