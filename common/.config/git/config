@@ -33,6 +33,7 @@
     d    = diff
     dc   = diff --cached
     f    = fetch
+    fu   = fetch upstream
     g    = !exec git                        # Allow `$ g g g...`
     git  = !exec git                        # Allow `$ git git git...`
     # TODO: Fix side-by-side alias
