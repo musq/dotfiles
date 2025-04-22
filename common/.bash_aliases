@@ -19,6 +19,8 @@ alias aliases="alias | cut -c7- | bat -l ini --style=plain"
 alias c="clear -x"            # Soft clear screen (keep scrollback)
 alias cc="printf '\33c\e[3J'" # Hard clear screen (delete scrollback)
 
+alias cwd="copy_working_directory"
+
 alias b="bat"
 alias dfh='df -h $HOME'
 

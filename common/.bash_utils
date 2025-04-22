@@ -14,6 +14,16 @@ cmd_exists() {
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+# Copy current working directory path
+
+# cb source: https://gist.github.com/RichardBronosky/56d8f614fab2bacdd8b048fb58d0c0c7
+
+copy_working_directory() {
+	echo -n "${PWD/#$HOME/\~}" | tr -d "\r\n" | cb
+}
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 # Get running OS name
 
 # Usage:
