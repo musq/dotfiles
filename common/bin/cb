@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# from: https://gist.github.com/RichardBronosky/56d8f614fab2bacdd8b048fb58d0c0c7
+# https://gist.github.com/RichardBronosky/56d8f614fab2bacdd8b048fb58d0c0c7
 
 LINUX_copy() {
 	cat | xclip -selection clipboard
