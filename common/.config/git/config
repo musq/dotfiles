@@ -30,15 +30,14 @@
     co   = checkout
     cp   = cherry-pick
     cpa  = cherry-pick --abort
-    d    = diff
+    d    = diff                                 # Inline diff
     dc   = diff --cached
+    dcs  = -c delta.features=side-by-side diff --cached
+    ds   = -c delta.features=side-by-side diff  # Side-by-side diff
     f    = fetch
     fu   = fetch upstream
     g    = !exec git                        # Allow `$ g g g...`
     git  = !exec git                        # Allow `$ git git git...`
-    # TODO: Fix side-by-side alias
-    i    = diff | delta --side-by-side
-    ic   = icdiff --cached
 
     # Log
     l    = log --graph --pretty=custom      # Show custom graph
@@ -53,12 +52,9 @@
 
     m    = merge
 
-    # Pull & Push
-    pl   = pull
-    plom = pull origin master
-    plum = pull upstream master
-    pom  = push origin master
+    # Push
     pu   = push
+    puf  = push --force-with-lease  # Optimistic Concurrency Control
 
     r    = reset
     rb   = rebase
