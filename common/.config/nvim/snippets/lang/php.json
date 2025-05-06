@@ -1,0 +1,9 @@
+{
+  "breakpoint": {
+    "prefix": "pdb",
+    "body": [
+      "eval(\\Psy\\sh());"
+    ],
+    "description": "Set breakpoint"
+  }
+}

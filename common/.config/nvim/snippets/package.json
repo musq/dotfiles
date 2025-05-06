@@ -1,0 +1,12 @@
+{
+  "name": "custom-snippets",
+  "description": "Custom snippets via blink.cmp. https://cmp.saghen.dev/configuration/snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": "php",
+        "path": "lang/php.json"
+      }
+    ]
+  }
+}
