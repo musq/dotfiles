@@ -30,24 +30,24 @@ alias gs="git s"
 # NOTE: More git aliases are available as part of forgit
 # https://github.com/wfxr/forgit#-features
 # - ga:  Interactive 'git add' selector
-# - glo: Interactive 'git log' viewer
-# - gi:  Interactive '.gitignore' generator
-# - gd:  Interactive 'git diff' viewer
-# - grh: Interactive 'git reset HEAD <file>' selector
-# - gcf: Interactive 'git checkout <file>' selector
-# - gcb: Interactive 'git checkout <branch>' selector
 # - gbd: Interactive 'git branch -D <branch>' selector
-# - gct: Interactive 'git checkout <tag>' elector
-# - gco: Interactive 'git checkout <commit>' selector
-# - grc: Interactive 'git revert <commit>' selector
-# - gss: Interactive 'git stash' viewer
-# - gsp: Interactive 'git stash push' selector
-# - gcp: Interactive 'git cherry-pick' selector
-# - grb: Interactive 'git rebase -i' selector
-# - grl: Interactive 'git reflog' viewer
 # - gbl: Interactive 'git blame' selector
-# - gfu: Interactive 'git commit --fixup && git rebase -i --autosquash' selector
+# - gcb: Interactive 'git checkout <branch>' selector
+# - gcf: Interactive 'git checkout <file>' selector
 # - gclean: Interactive 'git clean' selector
+# - gco: Interactive 'git checkout <commit>' selector
+# - gcp: Interactive 'git cherry-pick' selector
+# - gct: Interactive 'git checkout <tag>' elector
+# - gd:  Interactive 'git diff' viewer
+# - gfu: Interactive 'git commit --fixup && git rebase -i --autosquash' selector
+# - gi:  Interactive '.gitignore' generator
+# - glo: Interactive 'git log' viewer
+# - grb: Interactive 'git rebase -i' selector
+# - grc: Interactive 'git revert <commit>' selector
+# - grh: Interactive 'git reset HEAD <file>' selector
+# - grl: Interactive 'git reflog' viewer
+# - gsp: Interactive 'git stash push' selector
+# - gss: Interactive 'git stash' viewer
 
 # Public IP
 alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
