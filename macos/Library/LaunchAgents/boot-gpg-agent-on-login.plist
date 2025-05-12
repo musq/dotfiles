@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Start gpg-agent and load keys in it upon login -->
+<!-- Ideally, this script should be loaded first, but this isn't being enforced yet! -->
+<!-- This is useful in GUI tools which need access to use GPG keys via gpg-agent (e.g. TablePlus) -->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>boot-gpg-agent-on-login</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/sh</string>
+    <string>-c</string>
+    <string>$HOME/Library/Scripts/boot-gpg-agent-on-login.sh</string>
+  </array>
+
+  <key>RunAtLoad</key>
+  <true/>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/boot-gpg-agent-on-login.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/boot-gpg-agent-on-login.err</string>
+</dict>
+</plist>

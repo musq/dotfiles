@@ -85,6 +85,7 @@ mkdir -p "$HOME/src"
 case "$(current_os)" in
 macos)
 	mkdir -p "$HOME/Library/LaunchAgents"
+	mkdir -p "$HOME/Library/Scripts"
 	;;
 esac
 

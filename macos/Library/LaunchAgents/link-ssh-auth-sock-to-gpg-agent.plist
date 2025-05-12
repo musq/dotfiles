@@ -3,17 +3,26 @@
 <!-- To symlink SSH_AUTH_SOCK on boot to system-wide, we switch the value from default ssh agent here -->
 <!-- https://gist.github.com/rjocoleman/2a436740a52c6457c92c7a52ca831a9d -->
 <!-- Change the SSH_AUTH_SOCK path below to point to: `gpgconf --list-dirs agent-ssh-socket` -->
+<!-- This is useful in GUI tools which need to use SSH via gpg-agent (e.g. TablePlus) -->
 <plist version="1.0">
 <dict>
   <key>Label</key>
   <string>link-ssh-auth-sock-to-gpg-agent</string>
+
   <key>ProgramArguments</key>
   <array>
     <string>/bin/sh</string>
     <string>-c</string>
     <string>/bin/ln -sf /Users/ashish/.gnupg/S.gpg-agent.ssh $SSH_AUTH_SOCK</string>
   </array>
+
   <key>RunAtLoad</key>
   <true/>
+
+  <key>StandardOutPath</key>
+  <string>/tmp/link-ssh-auth-sock-to-gpg-agent.log</string>
+
+  <key>StandardErrorPath</key>
+  <string>/tmp/link-ssh-auth-sock-to-gpg-agent.err</string>
 </dict>
 </plist>
