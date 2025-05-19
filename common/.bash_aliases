@@ -55,7 +55,8 @@ alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
 alias l="less"
 alias ll="eza --long --all --group --time=modified"
 alias m="man"
-alias p='python3'
+alias p="python3"
+alias pa="php artisan"
 alias path='printf "%b\n" "${PATH//:/\\n}"'
 alias pc="pass-clip"
 alias pf="passfzf"
@@ -66,7 +67,7 @@ alias rmf="rm -rf"
 
 # Neovim
 alias v="nvim"
-alias vi="vi -u ~/.config/.vimrc"
+alias vi="vim"
 alias vim="vim -u ~/.config/.vimrc"
 # Keep a separate instance of lazyvim handy as 'vv'
 # This would be helpful when the main nvim installation starts breaking
