@@ -43,13 +43,9 @@ brew "stow"
 brew "tmux"
 brew "universal-ctags"
 brew "vim"
+brew "visidata"
 brew "wormhole-william"
 brew "zoxide"
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-tap "saulpw/vd"
-brew "saulpw/vd/visidata"
 
 # =====================================================================
 # Linux
