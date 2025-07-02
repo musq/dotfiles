@@ -24,6 +24,7 @@
 
     # Basic
     a    = add
+    ab   = absorb --and-rebase
     br   = branch
     c    = commit
     ca   = commit --amend
@@ -58,6 +59,7 @@
 
     r    = reset
     rb   = rebase
+    rbi  = rebase --interactive --autosquash --autostash  # Used after running `git absorb`
     rba  = rebase --abort
     rbc  = rebase --continue
 
