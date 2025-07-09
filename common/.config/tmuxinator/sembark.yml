@@ -1,0 +1,29 @@
+---
+name: SB
+tmux_options: -f ~/.config/tmux.conf
+
+windows:
+  - bash:
+      panes:
+        - cd ~/sembark/apis
+  - bash:
+      panes:
+        - cd ~/sembark/apis
+  - be:
+      # https://github.com/tmux/tmux/wiki/Getting-Started#window-layouts
+      layout: main-horizontal
+      panes:
+        - ngrok:
+            - cd ~/sembark/apis
+            - ngrok http --url=workable-basically-gator.ngrok-free.app 8000
+        - laravel-server:
+            - cd ~/sembark/apis
+            - php artisan serve
+  - fe:
+      panes:
+        - fe-server:
+            - cd ~/sembark/app
+            - npm start
+  - ytx:
+      panes:
+        - ytx --search
