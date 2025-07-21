@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# https://www.gnupg.org/documentation/manuals/gnupg/Agent-Examples.html
+# https://gist.github.com/mcattarinussi/834fc4b641ff4572018d0c665e5a94d3
+
 GPG_TTY=$(tty) && export GPG_TTY
 
 unset SSH_AGENT_PID

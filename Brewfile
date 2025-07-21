@@ -1,7 +1,7 @@
 # Modeline hint for vim to improve syntax highlighting of this file
 # vim: syntax=sh
 
-# Usage: `brew bundle --no-lock --file /path/to/Brewfile`
+# Usage: `brew bundle --file /path/to/Brewfile`
 
 # https://docs.brew.sh/Manpage#bundle-subcommand
 # https://homebrew-file.readthedocs.io/en/latest/usage.html
