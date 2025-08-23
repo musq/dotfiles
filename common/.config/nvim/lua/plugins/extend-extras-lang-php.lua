@@ -4,7 +4,7 @@ return {
   -- Ensure PHP tools are installed
   {
     "williamboman/mason.nvim",
-    opts = { ensure_installed = { "phpactor", "phpcs", "php-cs-fixer", "prettier" } },
+    opts = { ensure_installed = { "phpactor", "phpcs", "php-cs-fixer", "prettier", "psalm", "phpstan" } },
   },
 
   -- https://github.com/mfussenegger/nvim-lint#usage
@@ -13,7 +13,9 @@ return {
     opts = {
       linters_by_ft = {
         -- php = { "phpcs" },
-        php = {},
+        -- php = { "psalm", "phpstan" },
+        php = { "phpstan" },
+        -- php = {},
       },
     },
   },
