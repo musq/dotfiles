@@ -2,7 +2,7 @@
 -- https://www.lazyvim.org/extras/editor/mini-files
 
 return {
-  "echasnovski/mini.files",
+  "nvim-mini/mini.files",
   keys = {
     {
       "<leader>e",

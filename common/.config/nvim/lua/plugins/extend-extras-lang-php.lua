@@ -3,7 +3,7 @@
 return {
   -- Ensure PHP tools are installed
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = { ensure_installed = { "phpactor", "phpcs", "php-cs-fixer", "prettier", "psalm", "phpstan" } },
   },
 

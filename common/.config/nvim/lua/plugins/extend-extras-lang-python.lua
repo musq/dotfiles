@@ -3,7 +3,7 @@
 return {
   -- Ensure Python tools are installed
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = { ensure_installed = { "black", "isort", "flake8", "mypy", "ruff" } },
   },
 
