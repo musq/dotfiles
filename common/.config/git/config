@@ -298,13 +298,17 @@
     autocrlf = input
     editor = nvim
     excludesfile = ~/.config/git/ignore
-    pager = delta --syntax-theme=TwoDark
+    pager = delta
 
 [credential]
 
     # Store credentials in cache for 600s
 
     helper = cache --timeout=600
+
+[delta]
+
+    syntax-theme = TwoDark
 
 [diff]
 
@@ -335,6 +339,11 @@
 
     defaultBranch = main
     templatedir = ~/.config/git/template
+
+[interactive]
+
+    # Use delta pager in git add -p
+    diffFilter = "delta --color-only"
 
 [merge]
 
