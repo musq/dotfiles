@@ -11,14 +11,14 @@ windows:
         - cd ~/sembark/apis
   - be:
       # https://github.com/tmux/tmux/wiki/Getting-Started#window-layouts
-      layout: main-horizontal
+      layout: even-vertical
       panes:
         - ngrok:
             - cd ~/sembark/apis
             - ngrok http --url=workable-basically-gator.ngrok-free.app 8000
         - laravel-server:
             - cd ~/sembark/apis
-            - php artisan serve
+            - php artisan serve --port 8000
   - fe:
       panes:
         - fe-server:
@@ -27,3 +27,13 @@ windows:
   - ytx:
       panes:
         - ytx --search
+  - be2:
+      panes:
+        - laravel-server:
+            - cd ~/sembark/apis2
+            - php artisan serve --port 8001
+  - fe2:
+      panes:
+        - fe-server:
+            - cd ~/sembark/app2
+            - npm start
