@@ -48,6 +48,9 @@ eval "$(starship init bash)"
 # Set up zoxide key bindings and completion
 eval "$(zoxide init bash)"
 
+# Activate mise to make mise installed tools available in $PATH
+eval "$(mise activate bash)"
+
 # Make new shells get the history lines from all previous shells instead
 # of the default "last window closed" history
 export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
