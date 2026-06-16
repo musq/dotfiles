@@ -1,34 +1,62 @@
 -- https://www.lazyvim.org/extras/lang/php
 
+require("lspconfig.configs")["phpantom_lsp"] = {
+  default_config = {
+    cmd = { "/opt/homebrew/bin/phpantom_lsp" },
+    filetypes = { "php" },
+    root_dir = require("lspconfig.util").root_pattern("composer.json", ".git"),
+    settings = {},
+  },
+}
+
 return {
-  -- Ensure PHP tools are installed
   {
-    "mason-org/mason.nvim",
-    opts = { ensure_installed = { "phpactor", "phpcs", "php-cs-fixer", "prettier", "psalm", "phpstan" } },
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = { "php", "php_only", "blade" },
+    },
   },
 
-  -- https://github.com/mfussenegger/nvim-lint#usage
   {
-    "mfussenegger/nvim-lint",
+    "neovim/nvim-lspconfig",
     opts = {
-      linters_by_ft = {
-        -- php = { "phpcs" },
-        -- php = { "psalm", "phpstan" },
-        php = { "phpstan" },
-        -- php = {},
+      servers = {
+        phpactor = { enabled = false },
+        intelephense = { enabled = false },
+        phpantom_lsp = { enabled = true },
       },
     },
   },
 
-  -- https://github.com/stevearc/conform.nvim#setup
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        php = { "phpstan" },
+      },
+    },
+  },
+
   {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        -- Conform will run multiple formatters sequentially
-        -- php = { "prettier", "pint", "php_cs_fixer" },
-        php = { "prettier", "pint" },
-        blade = { "prettier" },
+        php = { "prettier", "rector", "pint" },
+        blade = { "prettier", "pint" },
+      },
+      formatters = {
+        rector = {
+          command = "vendor/bin/rector",
+          args = { "process", "--no-ansi", "--no-diffs", "$FILENAME" },
+          stdin = false,
+          condition = function(self, ctx)
+            local root = vim.fs.root(ctx.buf, { "composer.json", ".git" })
+            if not root then
+              return false
+            end
+            return vim.fn.filereadable(root .. "/vendor/bin/rector") == 1
+          end,
+        },
       },
     },
   },
