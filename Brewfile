@@ -76,4 +76,5 @@ brew "pinentry-mac" if OS.mac?
 cask "alacritty"
 cask "brave-browser"
 cask "db-browser-for-sqlite"
+cask "font-iosevka-term-nerd-font"
 cask "sublime-text"
