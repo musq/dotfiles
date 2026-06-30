@@ -27,13 +27,13 @@ windows:
   - ytx:
       panes:
         - ytx --search
-  - be2:
-      panes:
-        - laravel-server:
-            - cd ~/sembark/apis2
-            - php artisan serve --port 8001
-  - fe2:
-      panes:
-        - fe-server:
-            - cd ~/sembark/app2
-            - npm start
+  # - be2:
+  #     panes:
+  #       - laravel-server:
+  #           - cd ~/sembark/apis2
+  #           - php artisan serve --port 8001
+  # - fe2:
+  #     panes:
+  #       - fe-server:
+  #           - cd ~/sembark/app2
+  #           - npm start
