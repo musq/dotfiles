@@ -4,6 +4,7 @@
 
 vim.keymap.set("n", "<TAB>", "<CMD>FzfLua buffers sort_mru=true sort_lastused=true<CR>", { desc = "Pick buffers" })
 vim.keymap.set("n", "<C-n>i", "<C-i>", { noremap = true, desc = "Move forward in jumplist" })
+vim.keymap.set("n", "<CR>", "<CMD>e<CR>", { desc = "Reload current file" })
 
 -- Toggle Window Diff
 vim.keymap.set("n", "<leader>zd", function()
