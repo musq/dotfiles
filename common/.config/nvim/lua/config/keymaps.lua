@@ -21,3 +21,10 @@ vim.keymap.set("n", "<leader>zd", function()
     vim.w.windowdiffstatus = "off"
   end
 end, { desc = "Toggle Window Diff" })
+
+vim.keymap.set(
+  "n",
+  "<leader>rl",
+  "<cmd>lua local clients = vim.lsp.get_clients({ bufnr = 0 }); for _, c in ipairs(clients) do vim.lsp.stop_client(c.id) end; vim.cmd('edit')<CR>",
+  { desc = "Restart LSP" }
+)
