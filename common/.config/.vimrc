@@ -101,6 +101,11 @@ set softtabstop=4              " │ Set global <TAB> settings
 set shiftwidth=4               " │
 set expandtab                  " ┘
 
+set timeout                    " Enable timeout for mapped key sequences
+set timeoutlen=1000            " Time to wait for a mapped sequence (ms)
+set ttimeout                   " Enable timeout for key codes
+set ttimeoutlen=10             " Time to wait for a key code sequence (ms)
+
 set t_ut=                      " Disable Background Color Erase (BCE)
 set ttyfast                    " Enable fast terminal connection
 set undofile                   " Automatically save undo history
@@ -124,4 +129,8 @@ set wildmenu                   " Enable enhanced command-line
 set winminheight=0             " Allow windows to be squashed
 
 " https://en.wikipedia.org/wiki/ANSI_escape_code#8-bit
-highlight ColorColumn ctermbg=236  " Dark gray for dark mode
+highlight ColorColumn ctermbg=236             " Dark gray for dark mode
+highlight Search ctermbg=243 ctermfg=black    " Gray for highlighted text
+
+" Clear highlighted matches on pressing <Esc> key
+nnoremap <silent> <Esc> :nohlsearch<CR>
