@@ -52,7 +52,7 @@ alias gs="git s"
 # Public IP
 alias ipp="dig +short myip.opendns.com @resolver1.opendns.com"
 
-alias l="less"
+alias l="bat --paging=always"
 alias ll="eza --long --all --group --time=modified"
 alias m="man"
 alias p="python3"
