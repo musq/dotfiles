@@ -15,7 +15,7 @@ windows:
       panes:
         - ngrok:
             - cd ~/sembark/apis
-            - ngrok http --url=workable-basically-gator.ngrok-free.app 8000
+            - ngrok start --all --config ~/.config/ngrok/ngrok.yml
         - laravel-server:
             - cd ~/sembark/apis
             - php artisan serve --port 8000
