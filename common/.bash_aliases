@@ -126,6 +126,11 @@ alias t="tmux"
 alias ta="tmux attach"
 alias tl="tmux ls"
 
+# TOTP copy
+# https://github.com/pepa65/aegis-cli
+# Install: cargo install aegis-cli
+alias tc='~/.cargo/bin/aegis <(gpg --decrypt ~/.bc/aegis.gpg) --password $(pass user/andotp)'
+
 # =====================================================================
 # OS specific
 # =====================================================================
