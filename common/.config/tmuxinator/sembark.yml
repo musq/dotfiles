@@ -5,28 +5,42 @@ tmux_options: -f ~/.config/tmux.conf
 windows:
   - bash:
       panes:
-        - cd ~/sembark/apis
+        - cd ~/sembark/hotel-crm/hotel-apis
   - bash:
       panes:
-        - cd ~/sembark/apis
+        - cd ~/sembark/hotel-crm/hotel-apis
   - be:
       # https://github.com/tmux/tmux/wiki/Getting-Started#window-layouts
       layout: even-vertical
       panes:
         - ngrok:
-            - cd ~/sembark/apis
+            - cd ~/sembark/hotel-crm/hotel-apis
             - ngrok start --all --config ~/.config/ngrok/ngrok.yml
-        - laravel-server:
-            - cd ~/sembark/apis
-            - php artisan serve --port 8000
+        - hotel-crm-server:
+            - cd ~/sembark/hotel-crm/hotel-apis
+            - php artisan serve --port 8005
   - fe:
       panes:
         - fe-server:
-            - cd ~/sembark/app
+            - cd ~/sembark/hotel-crm/hotel-app
             - npm start
   - ytx:
       panes:
         - ytx --search
+
+  - iac:
+      panes:
+        - cd ~/sembark/iac/travel-features
+
+  - be-travel:
+      panes:
+        - cd ~/sembark/apis
+  - fe-travel:
+      panes:
+        - fe-server:
+            - cd ~/sembark/app
+            # - npm start
+
   # - be2:
   #     panes:
   #       - laravel-server:
