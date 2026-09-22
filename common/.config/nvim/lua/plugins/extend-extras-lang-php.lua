@@ -11,7 +11,7 @@ return {
   {
     "mason-org/mason.nvim",
     opts = function(_, opts)
-      local include = { "phpstan", "phpantom_lsp" }
+      local include = { "phpstan", "phpactor", "phpantom_lsp" }
       local exclude = { "phpcs", "php-cs-fixer" }
       opts.ensure_installed = vim.tbl_filter(function(tool)
         return not vim.tbl_contains(exclude, tool)
@@ -24,9 +24,10 @@ return {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        phpactor = { enabled = false },
+        phpactor = { enabled = true },
         intelephense = { enabled = false },
         phpantom_lsp = {
+          enabled = false,
           on_attach = function(client, bufnr)
             local group = vim.api.nvim_create_augroup("phpantom-refresh", { clear = true })
 
@@ -81,8 +82,8 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        php = { "prettier", "rector", "pint" },
-        -- php = { "prettier", "pint" },
+        -- php = { "prettier", "rector", "pint" },
+        php = { "prettier", "pint" },
         blade = { "prettier", "pint" },
       },
       formatters = {
